@@ -64,7 +64,7 @@ export default function Hero() {
         <div className="h-10 md:h-20" />
 
         <motion.a
-          href="https://t.me/aastu_cems"
+          href="http://www.mint.gov.et/"
           target="_blank"
           rel="noopener noreferrer"
           initial={{ opacity: 0, y: -20 }}
@@ -75,8 +75,8 @@ export default function Hero() {
           <div className="w-8 h-8 rounded-full bg-sky-500 flex items-center justify-center shrink-0">
             <Send size={14} className="text-white fill-white -translate-x-[0.5px] translate-y-[0.5px]" />
           </div>
-          <span className="hidden md:inline">Join the CEMS Telegram Channel</span>
-          <span className="inline md:hidden">Telegram Channel</span>
+          <span className="hidden md:inline">Official MInT Website — mint.gov.et</span>
+          <span className="inline md:hidden">mint.gov.et</span>
           <ArrowRight size={12} className="opacity-60 ml-1 shrink-0" />
         </motion.a>
 
@@ -84,10 +84,13 @@ export default function Hero() {
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-5xl md:text-8xl font-black mb-8 text-foreground leading-[0.9] tracking-tighter"
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-8 text-foreground leading-[0.95] tracking-tighter"
         >
-          Your Ministry. <br />
-          <span className="text-brand">Your Events.</span>
+          Ethiopian Ministry
+          <br />
+          Event Management
+          <br />
+          <span className="text-brand">System</span>
         </motion.h1>
 
         <motion.p
@@ -96,8 +99,8 @@ export default function Hero() {
           transition={{ delay: 0.3 }}
           className="text-muted-foreground mb-12 max-w-2xl mx-auto text-xl md:text-2xl font-medium leading-relaxed"
         >
-          The intelligent platform for discovering and managing
-          extra-curricular excellence at MInT.
+          Discover, organize, and join research, innovation, ICT, and technology
+          programs across Ethiopia&apos;s Ministry of Innovation and Technology (MInT).
         </motion.p>
 
         <motion.div

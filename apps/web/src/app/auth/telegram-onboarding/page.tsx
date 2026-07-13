@@ -163,7 +163,7 @@ function TelegramOnboardingForm() {
           </div>
           <h1 className="text-2xl font-black text-white tracking-tight">Complete Setup</h1>
           <p className="mt-2 text-sm font-medium text-gray-400">
-            {telegramUsername ? `Welcome @${telegramUsername}!` : "Welcome to CEMS!"} Complete these details to finalize your profile.
+            {telegramUsername ? `Welcome @${telegramUsername}!` : "Welcome to MInT!"} Complete these details to finalize your profile.
           </p>
         </div>
 

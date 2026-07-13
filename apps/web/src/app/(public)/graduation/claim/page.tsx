@@ -316,7 +316,7 @@ function GraduationClaimForm() {
         {/* Header card */}
         <div className={`relative rounded-lg overflow-hidden bg-gradient-to-br ${tier?.color} p-8 text-white shadow-2xl`}>
           <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full -mr-16 -mt-16 blur-2xl" />
-          <p className="text-xs font-black uppercase tracking-[0.2em] text-white/60 mb-1">MInT — CEMS</p>
+          <p className="text-xs font-black uppercase tracking-[0.2em] text-white/60 mb-1">MInT</p>
           <h1 className="text-3xl font-black tracking-tight">{status?.event.title}</h1>
           <p className="text-white/70 text-sm mt-1">
             {status && new Date(status.event.startTime).toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" })}

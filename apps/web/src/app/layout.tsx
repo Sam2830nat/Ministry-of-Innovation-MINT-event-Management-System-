@@ -5,15 +5,15 @@ import SmoothScroll from "@/components/ui/SmoothScroll";
 import { Toaster } from "@/components/shared/ToastController";
 
 export const metadata: Metadata = {
-  title: "CEMS: Ministry Event Management System",
+  title: "MInT: Ministry of Innovation and Technology — Event Management",
   description:
-    "Discover, organize, and participate in ministry events at Addis Ababa Science and Technology University.",
+    "Discover, organize, and participate in events for the Ministry of Innovation and Technology (MInT).",
   // Next.js 13+ serves /manifest.webmanifest automatically via the manifest.ts route handler.
   // No need to set `manifest` here — it would create a duplicate link tag.
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "CEMS",
+    title: "MInT",
     startupImage: "/icon-512.png",
   },
   formatDetection: {

@@ -5,6 +5,7 @@ import Testimonials from "@/components/landing/Testimonials";
 import Features from "@/components/landing/Features";
 import Footer from "@/components/landing/Footer";
 import CoreFeatures from "@/components/landing/CoreFeatures";
+import AboutMint from "@/components/landing/AboutMint";
 import FinalCTA from "@/components/landing/FinalCTA";
 import SmoothScroll from "@/components/ui/SmoothScroll";
 
@@ -14,6 +15,7 @@ export default function Home() {
       <main className="min-h-screen flex flex-col">
         <Navbar />
         <Hero />
+        <AboutMint />
         <CoreFeatures />
         <Features />
         <HowItWorks />

@@ -144,7 +144,7 @@ export class EmailService {
     const html = this.getHtmlLayout(
       'Reset password.',
       'Requested a password reset?',
-      '<p>You requested a password reset for your CEMS account. If this was not you, please ignore this email. This link will expire in 15 minutes.</p>',
+      '<p>You requested a password reset for your MInT account. If this was not you, please ignore this email. This link will expire in 15 minutes.</p>',
       { text: 'Reset Password', url: resetUrl },
     );
 
@@ -361,7 +361,7 @@ export class EmailService {
       { text: 'Share My Feedback', url: feedbackUrl },
     );
 
-    await this.sendMail(email, `[FEEDBACK] How was "${eventTitle}"? — CEMS`, html);
+    await this.sendMail(email, `[FEEDBACK] How was "${eventTitle}"? — MInT`, html);
     this.logger.log(`Feedback request email sent to ${email} for event: ${eventTitle}`);
   }
 

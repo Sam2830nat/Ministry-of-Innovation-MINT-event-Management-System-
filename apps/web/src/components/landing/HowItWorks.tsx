@@ -87,7 +87,7 @@ export default function HowItWorks() {
            transition={{ duration: 0.6 }}
         >
           <div className="h-10" />
-          <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900 dark:text-white tracking-tighter">How CEMS Works</h2>
+          <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900 dark:text-white tracking-tighter">How MInT Works</h2>
           <p className="text-gray-500 mb-24 max-w-2xl mx-auto text-xl font-medium leading-relaxed">
             From creation to celebration — four simple steps to master ministry coordination.
           </p>

@@ -29,8 +29,8 @@ export const exportAnalytics = async ({
     
     const timestamp = new Date().toISOString().split("T")[0];
     const filename = type === "admin" 
-      ? `cems-admin-report-${timestamp}.${format}`
-      : `cems-event-${eventId}-report-${timestamp}.${format}`;
+      ? `mint-admin-report-${timestamp}.${format}`
+      : `mint-event-${eventId}-report-${timestamp}.${format}`;
     
     link.setAttribute("download", filename);
     document.body.appendChild(link);

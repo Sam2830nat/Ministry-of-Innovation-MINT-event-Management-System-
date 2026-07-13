@@ -123,7 +123,7 @@ function FeedbackFormContent({ token }: { token: string }) {
                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl" />
                 <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-white/10 rounded-full blur-2xl" />
                 <p className="text-xs font-black uppercase tracking-[0.25em] text-white/60 mb-2">
-                    MInT — CEMS · Feedback
+                    MInT · Feedback
                 </p>
                 <h1 className="text-2xl font-black tracking-tight leading-tight">
                     {formData.eventTitle}

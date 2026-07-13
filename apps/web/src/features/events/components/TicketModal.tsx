@@ -52,7 +52,7 @@ export const TicketModal = ({
       });
       
       const link = document.createElement('a');
-      link.download = `CEMS-Ticket-${ticketId}.png`;
+      link.download = `MInT-Ticket-${ticketId}.png`;
       link.href = dataUrl;
       link.click();
       toast.success("Ticket saved successfully!");
@@ -117,7 +117,7 @@ export const TicketModal = ({
                     </div>
                     <div>
                       <span className="font-brand font-black text-[10px] uppercase tracking-[0.25em] text-white/90 block leading-none">
-                        CEMS
+                        MInT
                       </span>
                       <span className="text-[8px] uppercase tracking-[0.15em] text-white/50 font-bold">
                         Event Ticket
@@ -239,7 +239,7 @@ export const TicketModal = ({
                 <span>Ministry Event Management</span>
                 <div className="flex items-center gap-1">
                   <div className="w-1 h-1 rounded-full bg-brand/50" />
-                  <span>CEMS</span>
+                  <span>MInT</span>
                   <div className="w-1 h-1 rounded-full bg-brand/50" />
                 </div>
               </div>

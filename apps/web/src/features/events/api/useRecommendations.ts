@@ -6,13 +6,18 @@ import { Event } from './useEvents';
 export async function fetchRecommendations(userId: string, n: number = 5) {
     const res = await apiFetch(`/api/recommendations/user/${userId}?n=${n}`);
 
+    // 503 = ML models not trained yet (fresh DB). Treat as empty, not a hard failure.
+    if (res.status === 503) {
+        return [] as Event[];
+    }
+
     if (!res.ok) {
-        const error = await res.json();
+        const error = await res.json().catch(() => ({}));
         throw new Error(error.message || 'Failed to fetch recommendations');
     }
 
     const result = await res.json();
-    return result.data as Event[];
+    return (result.data || []) as Event[];
 }
 
 export async function fetchSimilarEvents(eventId: string, n: number = 5) {

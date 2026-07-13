@@ -27,7 +27,7 @@ const guestFeatures = [
     iconColor: "text-brand",
     title: "Find events you'll actually love",
     story:
-      "No more scrolling through irrelevant posts. CEMS learns from what you attend and what you love — then surfaces exactly the right events for you.",
+      "No more scrolling through irrelevant posts. MInT learns from what you attend and what you love — then surfaces exactly the right events for you.",
     tag: "Personalized for you",
     tagColor: "bg-brand/10 text-brand",
     micro: (
@@ -158,7 +158,7 @@ const organizerFeatures = [
     iconColor: "text-brand",
     title: "Schedule without the headaches",
     story:
-      "Pick a venue, pick a time — CEMS instantly checks for conflicts across all departments and flags overlaps before they become problems.",
+      "Pick a venue, pick a time — MInT instantly checks for conflicts across all departments and flags overlaps before they become problems.",
     tag: "Zero scheduling conflicts",
     tagColor: "bg-brand/10 text-brand",
     micro: (
@@ -214,7 +214,7 @@ const organizerFeatures = [
     iconColor: "text-brand",
     title: "Control exactly who can attend",
     story:
-      "Going department-only? Invite-only? Public? Set it once and CEMS enforces it automatically — no manual gatekeeping needed.",
+      "Going department-only? Invite-only? Public? Set it once and MInT enforces it automatically — no manual gatekeeping needed.",
     tag: "Granular access",
     tagColor: "bg-brand/10 text-brand",
     micro: (
@@ -271,7 +271,7 @@ const organizerFeatures = [
           <Send size={14} className="text-white" />
         </div>
         <div>
-          <p className="text-[10px] font-black text-sky-600 dark:text-sky-400">CEMS Bot</p>
+          <p className="text-[10px] font-black text-sky-600 dark:text-sky-400">MInT Bot</p>
           <p className="text-[10px] text-gray-600 dark:text-gray-400 mt-0.5">New event: "AI Summit 2026" — Register now!</p>
         </div>
       </div>
@@ -305,7 +305,7 @@ export default function CoreFeatures() {
             <span className="text-brand">real people.</span>
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-lg leading-relaxed font-medium mb-10">
-            Whether you&apos;re discovering your next favorite event or coordinating an entire ministry festival — CEMS has you covered.
+            Whether you&apos;re discovering your next favorite event or coordinating an entire ministry festival — MInT has you covered.
           </p>
 
           {/* Role Switcher */}

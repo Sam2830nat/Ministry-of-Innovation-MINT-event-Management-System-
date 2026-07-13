@@ -39,7 +39,7 @@ export default function Logo({ className, size = "md", href = "/", hideText = fa
           "mx-1 font-black bg-linear-to-r from-brand via-blue-500 to-cyan-400 bg-clip-text text-transparent transition-all duration-500 group-hover:from-blue-600 group-hover:to-brand",
           sizeClasses[size]
         )}>
-          {hideText ? "C" : "CEMS"}
+          {hideText ? "M" : "MInT"}
         </span>
         {!hideText && (
           <span className={cn(

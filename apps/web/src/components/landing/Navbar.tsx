@@ -8,6 +8,7 @@ import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 const links = [
   { name: "Home", href: "/" },
+  { name: "About MInT", href: "#about-mint" },
   { name: "Features", href: "#core-features" },
   { name: "Support", href: "#final-cta" },
 ];

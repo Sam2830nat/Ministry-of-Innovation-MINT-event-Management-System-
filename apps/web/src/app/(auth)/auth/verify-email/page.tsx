@@ -7,7 +7,7 @@ export default function VerifyEmailPage() {
   return (
     <AuthShell
       title="Verify Your Email"
-      subtitle="Complete your registration to unlock the full potential of the CEMS ecosystem."
+      subtitle="Complete your registration to unlock the full potential of the MInT ecosystem."
     >
       <Suspense fallback={
         <div className="flex flex-col items-center justify-center py-12">

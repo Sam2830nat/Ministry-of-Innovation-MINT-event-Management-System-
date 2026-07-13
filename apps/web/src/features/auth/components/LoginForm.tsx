@@ -115,7 +115,7 @@ export function LoginForm() {
           Welcome back.
         </h1>
         <p className="text-gray-500 text-sm font-medium leading-relaxed">
-          Sign in to your CEMS portal to manage and discover ministry events.
+          Sign in to your MInT portal to manage and discover ministry events.
         </p>
       </div>
 
@@ -225,7 +225,7 @@ export function LoginForm() {
       {/* Footer */}
       <div className="mt-8 pt-6 border-t border-gray-100">
         <p className="text-xs text-gray-400 text-center font-medium">
-          New to CEMS?{" "}
+          New to MInT?{" "}
           <Link
             href="/signup"
             className="text-brand font-bold hover:text-brand-hover transition-colors"

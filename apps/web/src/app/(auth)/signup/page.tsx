@@ -3,7 +3,7 @@ import AuthShell from "@/features/auth/components/AuthShell";
 import { SignupForm } from "@/features/auth/components/SignupForm";
 
 export const metadata = {
-  title: "Create Account — CEMS",
+  title: "Create Account — MInT",
   description: "Join the Ministry of Innovation and Technology (MInT) Event Management System.",
 };
 

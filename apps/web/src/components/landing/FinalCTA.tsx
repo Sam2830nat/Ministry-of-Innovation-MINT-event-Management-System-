@@ -21,8 +21,13 @@ export default function FinalCTA() {
           transition={{ delay: 0.2 }}
           className="text-4xl md:text-8xl font-brand font-black text-white mb-10 tracking-tighter leading-[0.9]"
         >
-          Ready to <span className="text-white/50">Elevate</span> <br />
-          Your Ministry <span className="underline decoration-white/20 underline-offset-8">Legacy?</span>
+          Ready to power{" "}
+          <span className="text-white/50">Ethiopia&apos;s</span>
+          <br />
+          innovation{" "}
+          <span className="underline decoration-white/20 underline-offset-8">
+            events?
+          </span>
         </motion.h2>
         
         <motion.p 
@@ -32,8 +37,8 @@ export default function FinalCTA() {
           transition={{ delay: 0.4 }}
           className="text-blue-50/70 text-xl md:text-2xl mb-16 max-w-3xl mx-auto leading-relaxed font-medium"
         >
-          Join thousands of MInT guests and organizers already building the 
-          future of ministry engagement. Your next big discovery starts here.
+          Join MInT staff, partners, and guests coordinating research, digitalization,
+          and technology programs — from concept notes to national innovation weeks.
         </motion.p>
 
         <motion.div 

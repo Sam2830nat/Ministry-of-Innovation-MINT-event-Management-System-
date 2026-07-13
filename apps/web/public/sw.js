@@ -1,4 +1,4 @@
-// ── CEMS Service Worker v2 ──────────────────────────────────────────────────
+// ── MInT Service Worker v2 ──────────────────────────────────────────────────
 // Strategy:
 //  • Static/_next assets  → Cache-First  (instant, background revalidate)
 //  • Navigation pages     → Network-First (fresh content, falls back to cache)
@@ -179,7 +179,7 @@ self.addEventListener("push", (event) => {
   if (!event.data) return;
   const data = event.data.json();
   event.waitUntil(
-    self.registration.showNotification(data.title || "CEMS", {
+    self.registration.showNotification(data.title || "MInT", {
       body: data.body || "",
       icon: "/icon-192.png",
       badge: "/icon-192.png",

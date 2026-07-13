@@ -3,7 +3,7 @@ import AuthShell from "@/features/auth/components/AuthShell";
 import { LoginForm } from "@/features/auth/components/LoginForm";
 
 export const metadata = {
-  title: "Sign In — CEMS",
+  title: "Sign In — MInT",
   description: "Sign in to the Ministry of Innovation and Technology (MInT) Event Management System.",
 };
 
@@ -11,14 +11,14 @@ export default function LoginPage() {
   return (
     <AuthShell
       badge="Welcome Back"
-      title={
+          title={
         <>
-          The ministry event
+          Ethiopian ministry
           <br />
-          <span className="text-brand">operating system.</span>
+          <span className="text-brand">events, unified.</span>
         </>
       }
-      subtitle="Sign in to discover, manage, and participate in every ministry experience at MInT."
+      subtitle="Sign in to Ethiopia's Ministry of Innovation and Technology event platform — research, innovation, ICT, and technology programs."
     >
       <Suspense fallback={
         <div className="flex flex-col items-center justify-center py-12 space-y-4">

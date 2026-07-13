@@ -69,17 +69,16 @@ export class RecommendationService {
       return orderedEvents;
     } catch (error: unknown) {
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      this.logger.error(`Failed to get recommendations: ${errorMessage}`);
+      this.logger.warn(`Recommendations unavailable for ${userId}: ${errorMessage}`);
       if (error && typeof error === 'object' && 'response' in error) {
         const axiosError = error as { response?: { status?: number } };
+        // Cold start / untrained models — return empty list so onboarding & discovery still work
         if (axiosError.response?.status === 503) {
-          throw new HttpException(
-            'Recommendation service unavailable. Models not trained yet.',
-            HttpStatus.SERVICE_UNAVAILABLE,
-          );
+          return [];
         }
       }
-      throw new HttpException('Failed to get recommendations', HttpStatus.INTERNAL_SERVER_ERROR);
+      // Network / unexpected ML failures: degrade gracefully instead of breaking the UI
+      return [];
     }
   }
 

@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Ministry of Innovation and Technology (MInT) Event Management System",
     short_name: "MInT EMS",
     description:
-      "Discover, organize, and participate in ministry events at Addis Ababa Science and Technology University.",
+      "Discover, organize, and participate in events for Ethiopia's Ministry of Innovation and Technology (MInT).",
     start_url: "/",
     scope: "/",
     display: "standalone",

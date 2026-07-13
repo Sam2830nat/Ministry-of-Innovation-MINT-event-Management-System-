@@ -67,7 +67,7 @@ function IOSInstructions({ onClose }: { onClose: () => void }) {
                 <span className="text-xl font-black text-white">C</span>
               </div>
               <div>
-                <h3 className="text-sm font-black tracking-tight text-white">Install CEMS</h3>
+                <h3 className="text-sm font-black tracking-tight text-white">Install MInT</h3>
                 <p className="text-xs text-slate-400">Add to your Home Screen</p>
               </div>
             </div>
@@ -112,7 +112,7 @@ function IOSInstructions({ onClose }: { onClose: () => void }) {
                 color: "bg-sky-500/10 text-sky-400",
                 text: (
                   <>
-                    Tap <span className="font-black text-white">Add</span> — CEMS will appear
+                    Tap <span className="font-black text-white">Add</span> — MInT will appear
                     on your home screen!
                   </>
                 ),
@@ -181,7 +181,7 @@ function NativeInstallPrompt({
             </div>
 
             <div className="flex-1 min-w-0">
-              <h3 className="text-sm font-black tracking-tight text-white">Install CEMS App</h3>
+              <h3 className="text-sm font-black tracking-tight text-white">Install MInT App</h3>
               <p className="mt-0.5 text-xs leading-relaxed text-slate-400">
                 Get faster access, instant updates, and a native-like experience.
               </p>
@@ -249,7 +249,7 @@ function InstalledToast() {
         <Check className="h-4 w-4" />
       </div>
       <div>
-        <p className="text-xs font-black text-white">CEMS Installed!</p>
+        <p className="text-xs font-black text-white">MInT Installed!</p>
         <p className="text-[10px] text-slate-400">Launch from your home screen or app drawer.</p>
       </div>
     </motion.div>
@@ -281,9 +281,9 @@ export function PWAInstallPrompt() {
       navigator.serviceWorker
         .register("/sw.js", { scope: "/" })
         .then((reg) => {
-          console.log("[CEMS PWA] Service worker registered →", reg.scope);
+          console.log("[MInT PWA] Service worker registered →", reg.scope);
         })
-        .catch((err) => console.error("[CEMS PWA] SW registration failed:", err));
+        .catch((err) => console.error("[MInT PWA] SW registration failed:", err));
     }
 
     // ── iOS: no beforeinstallprompt, show manual guide after 4s ──

@@ -79,7 +79,7 @@ export interface Event {
 }
 
 export const EVENT_PLACEHOLDER =
-  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%23f3f4f6'/%3E%3Cpath d='M400 200c-55 0-100 45-100 100s45 100 100 100 100-45 100-100-45-100-100-100zm0 150c-28 0-50-22-50-50s22-50 50-50 50 22 50 50-22 50-50 50z' fill='%23d1d5db'/%3E%3Cpath d='M250 450h300v-20c0-40-30-70-70-70h-160c-40 0-70 30-70 70v20z' fill='%23d1d5db'/%3E%3Ctext x='400' y='500' font-family='sans-serif' font-size='24' font-weight='bold' fill='%239ca3af' text-anchor='middle' uppercase='true' letter-spacing='2'%3ECEMS EVENT%3C/text%3E%3C/svg%3E";
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%23f3f4f6'/%3E%3Cpath d='M400 200c-55 0-100 45-100 100s45 100 100 100 100-45 100-100-45-100-100-100zm0 150c-28 0-50-22-50-50s22-50 50-50 50 22 50 50-22 50-50 50z' fill='%23d1d5db'/%3E%3Cpath d='M250 450h300v-20c0-40-30-70-70-70h-160c-40 0-70 30-70 70v20z' fill='%23d1d5db'/%3E%3Ctext x='400' y='500' font-family='sans-serif' font-size='24' font-weight='bold' fill='%239ca3af' text-anchor='middle' uppercase='true' letter-spacing='2'%3EMInT EVENT%3C/text%3E%3C/svg%3E";
 
 export const getThumbnailUrl = (event: Event) => {
   if (event.thumbnail) return event.thumbnail;
