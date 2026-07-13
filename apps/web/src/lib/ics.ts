@@ -12,9 +12,9 @@ export function generateICS(event: {
     const icsContent = [
         'BEGIN:VCALENDAR',
         'VERSION:2.0',
-        'PRODID:-//CEMS//Ministry Event Management System//EN',
+        'PRODID:-//MInT//Ministry Event Management System//EN',
         'BEGIN:VEVENT',
-        `UID:${Date.now()}@cems.mint.gov.et`,
+        `UID:${Date.now()}@mint.gov.et`,
         `DTSTAMP:${formatDate(new Date().toISOString())}`,
         `DTSTART:${formatDate(event.startTime)}`,
         `DTEND:${formatDate(event.endTime)}`,

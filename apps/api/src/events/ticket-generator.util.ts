@@ -110,12 +110,12 @@ export class TicketGeneratorUtil {
         // ── Header Text ──
         let y = passY + 24;
 
-        // Top row: "CEMS" logo text + Ticket ID
+        // Top row: "MInT" logo text + Ticket ID
         doc
           .font('Helvetica-Bold')
           .fontSize(9)
           .fillColor(BRAND.accent)
-          .text('[ CEMS ]', passX + pad, y, { width: innerW / 2 });
+          .text('[ MInT ]', passX + pad, y, { width: innerW / 2 });
         doc
           .font('Courier-Bold')
           .fontSize(7)
@@ -448,9 +448,9 @@ export class TicketGeneratorUtil {
         // ── Header Content ──
         let y = passY + 24;
 
-        // [ CEMS ] + pass ID
+        // [ MInT ] + pass ID
         doc.font('Helvetica-Bold').fontSize(9).fillColor(theme.accent)
-           .text('[ CEMS ]', passX + pad, y, { width: innerW / 2 });
+           .text('[ MInT ]', passX + pad, y, { width: innerW / 2 });
         doc.font('Courier-Bold').fontSize(7).fillColor('#ffffff60')
            .text(`#${guestPass.id.slice(-8).toUpperCase()}`, passX + pad + innerW / 2, y + 1, {
              width: innerW / 2, align: 'right',

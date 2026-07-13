@@ -53,7 +53,7 @@ export default function FinalCTA() {
           </Link>
           
           <Link
-            href="mailto:support@cems.mint.gov.et"
+            href="mailto:support@mint.gov.et"
             className="w-full sm:w-auto text-white/90 px-12 py-5 rounded-lg hover:bg-white/10 transition-all font-brand font-black text-xs uppercase tracking-[0.2em] border border-white/20 backdrop-blur-sm"
           >
             Contact Support

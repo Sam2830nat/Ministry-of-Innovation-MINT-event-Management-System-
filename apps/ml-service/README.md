@@ -1,6 +1,6 @@
 # CEMS AI Recommendation Engine
 
-A production-grade Machine Learning microservice providing personalized event recommendations for the Ministry of Innovation and Technology (MInT) Event Management System (CEMS).
+A production-grade Machine Learning microservice providing personalized event recommendations for the Ministry of Innovation and Technology (MInT) Event Management System (MInT EMS).
 
 ##  Core Architecture: Hybrid Intelligence
 

@@ -216,7 +216,7 @@ export class TelegramService implements OnModuleInit, OnModuleDestroy {
     const channelId = this.configService.get<string>('TELEGRAM_CHANNEL_ID');
     if (!channelId) return;
     const webUrl = (
-      this.configService.get<string>('CEMS_WEB_URL') ??
+      this.configService.get<string>('MINT_WEB_URL') ??
       this.configService.get<string>('FRONTEND_URL') ??
       ''
     ).replace(/\/$/, '');
@@ -265,7 +265,7 @@ export class TelegramService implements OnModuleInit, OnModuleDestroy {
       `${accessLabel}${capacityLine}${hashTags}`;
 
     const botUsername = this.configService.get<string>('TELEGRAM_BOT_USERNAME');
-    const miniAppName = this.configService.get<string>('TELEGRAM_MINI_APP_NAME') || 'cems';
+    const miniAppName = this.configService.get<string>('TELEGRAM_MINI_APP_NAME') || 'mint';
 
     const eventUrl = botUsername
       ? `https://t.me/${botUsername}/${miniAppName}?startapp=view_${event.id}`
@@ -342,7 +342,7 @@ export class TelegramService implements OnModuleInit, OnModuleDestroy {
     const channelId = this.configService.get<string>('TELEGRAM_CHANNEL_ID');
     if (!channelId) return;
     const webUrl = (
-      this.configService.get<string>('CEMS_WEB_URL') ??
+      this.configService.get<string>('MINT_WEB_URL') ??
       this.configService.get<string>('FRONTEND_URL') ??
       ''
     ).replace(/\/$/, '');
@@ -360,7 +360,7 @@ export class TelegramService implements OnModuleInit, OnModuleDestroy {
       `_Head over now — don't miss it!_`;
 
     const botUsername = this.configService.get<string>('TELEGRAM_BOT_USERNAME');
-    const miniAppName = this.configService.get<string>('TELEGRAM_MINI_APP_NAME') || 'cems';
+    const miniAppName = this.configService.get<string>('TELEGRAM_MINI_APP_NAME') || 'mint';
 
     const eventUrl = botUsername
       ? `https://t.me/${botUsername}/${miniAppName}?startapp=view_${event.id}`

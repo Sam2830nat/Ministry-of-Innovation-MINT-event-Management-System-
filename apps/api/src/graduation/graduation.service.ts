@@ -93,7 +93,7 @@ export class GraduationService {
   }
 
   private buildDeepLink(telegramToken: string): string {
-    const botUsername = this.configService.get<string>('TELEGRAM_BOT_USERNAME') ?? 'CemsBot';
+    const botUsername = this.configService.get<string>('TELEGRAM_BOT_USERNAME') ?? 'MInTBot';
     return `https://t.me/${botUsername}?start=${telegramToken}`;
   }
 
@@ -119,7 +119,7 @@ export class GraduationService {
       return { skipped: true, email: lowerEmail, reason: 'already_imported' };
     }
 
-    // Find matching CEMS user if they exist
+    // Find matching MInT user if they exist
     const matchedUser = await this.prisma.user.findUnique({
       where: { email: lowerEmail },
       select: { id: true },

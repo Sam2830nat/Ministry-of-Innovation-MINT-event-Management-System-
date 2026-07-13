@@ -52,7 +52,7 @@ export function SpeakerChip({ fullName, title, bio, profileImage }: SpeakerChipP
                  </div>
               </div>
               <p className="text-xs text-gray-500 leading-relaxed italic">
-                 {bio || "Guest speaker and field expert sharing insights at CEMS."}
+                 {bio || "Guest speaker and field expert sharing insights at MInT events."}
               </p>
            </div>
         </TooltipContent>

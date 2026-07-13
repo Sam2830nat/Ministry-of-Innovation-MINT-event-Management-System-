@@ -1,4 +1,4 @@
-<h1 align="center">Ministry of Innovation and Technology (MInT) Event Management System (CEMS)</h1>
+<h1 align="center">Ministry of Innovation and Technology (MInT) Event Management System (MInT EMS)</h1>
 
 <p align="center">
   <em>A production-ready, ML-enhanced platform for managing ministry events at Addis Ababa Science and Technology University</em>

@@ -74,7 +74,7 @@ export class EmailService {
           <div class="container">
             <div class="card">
               <div class="logo">
-                <span class="logo-bracket">[</span><span class="logo-text">CEMS</span><span class="logo-bracket">]</span>
+                <span class="logo-bracket">[</span><span class="logo-text">MInT</span><span class="logo-bracket">]</span>
               </div>
               <div class="accent-line"></div>
               <h1 class="title">${title}</h1>
@@ -123,12 +123,12 @@ export class EmailService {
 
     const html = this.getHtmlLayout(
       'Verify account.',
-      'Complete your registration to access the CEMS portal.',
+      'Complete your registration to access the MInT portal.',
       '<p>Welcome to the Ministry of Innovation and Technology (MInT) Event Management System. To fully activate your account and start discovering events, please verify your email address.</p>',
       { text: 'Verify Email', url: verifyUrl },
     );
 
-    await this.sendMail(email, 'Verify Your Email [CEMS]', html);
+    await this.sendMail(email, 'Verify Your Email [MInT EMS]', html);
   }
 
   async sendPasswordResetEmail(email: string, token: string) {
@@ -148,7 +148,7 @@ export class EmailService {
       { text: 'Reset Password', url: resetUrl },
     );
 
-    await this.sendMail(email, 'Reset Your Password [CEMS]', html);
+    await this.sendMail(email, 'Reset Your Password [MInT EMS]', html);
   }
 
   async sendEventLiveEmail(emails: string[], eventTitle: string) {
@@ -171,7 +171,7 @@ export class EmailService {
         from: `"Ministry of Innovation and Technology (MInT) Event Management System" <${this.configService.get<string>('SMTP_FROM')}>`,
         to: this.configService.get<string>('SMTP_FROM'),
         bcc: emails,
-        subject: `[LIVE] ${eventTitle} — CEMS`,
+        subject: `[LIVE] ${eventTitle} — MInT EMS`,
         html,
       });
 

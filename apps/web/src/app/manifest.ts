@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Ministry of Innovation and Technology (MInT) Event Management System",
-    short_name: "CEMS",
+    short_name: "MInT EMS",
     description:
       "Discover, organize, and participate in ministry events at Addis Ababa Science and Technology University.",
     start_url: "/",

@@ -1,5 +1,5 @@
 """
-Synthetic Data Generator for the CEMS Recommendation Engine.
+Synthetic Data Generator for the MInT Recommendation Engine.
 
 Generates realistic fake data that matches the existing Prisma/PostgreSQL schema.
 This data is used for:

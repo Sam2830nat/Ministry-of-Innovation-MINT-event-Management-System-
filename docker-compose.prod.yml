@@ -2,7 +2,7 @@ services:
   # ─── PostgreSQL ──────────────────────────────────────────
   postgres:
     image: postgres:16-alpine
-    container_name: cems-postgres
+    container_name: mint-postgres
     restart: unless-stopped
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-cems}
@@ -11,7 +11,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U cems -d cems_db"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-mint} -d cems_db"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -23,7 +23,7 @@ services:
   # ─── Redis ───────────────────────────────────────────────
   redis:
     image: redis:7-alpine
-    container_name: cems-redis
+    container_name: mint-redis
     restart: unless-stopped
     volumes:
       - redisdata:/data
@@ -43,7 +43,7 @@ services:
       context: ./apps/api
       dockerfile: Dockerfile
       target: production
-    container_name: cems-api
+    container_name: mint-api
     restart: unless-stopped
     ports:
       - "4000:4000"
@@ -72,7 +72,7 @@ services:
       TELEGRAM_CHANNEL_ID: ${TELEGRAM_CHANNEL_ID:-}
       TELEGRAM_WEBHOOK_URL: ${TELEGRAM_WEBHOOK_URL:-}
       ML_SERVICE_URL: http://ml-service:8000
-      CEMS_WEB_URL: ${FRONTEND_URL}
+      MINT_WEB_URL: ${FRONTEND_URL}
     depends_on:
       postgres:
         condition: service_healthy
@@ -94,7 +94,7 @@ services:
     build:
       context: ./apps/ml-service
       dockerfile: Dockerfile
-    container_name: cems-ml-service
+    container_name: mint-ml-service
     restart: unless-stopped
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER:-cems}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-cems_db}
@@ -130,7 +130,7 @@ services:
         NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: ${NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}
         NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET: ${NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET}
         NODE_MEMORY_MB: ${WEB_NODE_MEMORY_MB:-4096}
-    container_name: cems-web
+    container_name: mint-web
     restart: unless-stopped
     ports:
       - "3001:3001"
@@ -160,7 +160,7 @@ services:
     build:
       context: ./nginx
       dockerfile: Dockerfile
-    container_name: cems-nginx
+    container_name: mint-nginx
     restart: unless-stopped
     ports:
       - "80:80"

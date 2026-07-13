@@ -46,7 +46,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="CEMS Recommendation Engine",
+    title="MInT Recommendation Engine",
     version="0.1.0",
     lifespan=lifespan,
 )

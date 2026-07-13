@@ -113,7 +113,7 @@ jobs:
             docker compose -f docker-compose.prod.yml up -d postgres redis
 
             echo "==> Waiting for postgres to be healthy..."
-            until docker exec cems-postgres pg_isready -U cems -d cems_db; do
+            until docker exec cems-postgres pg_isready -U ${POSTGRES_USER:-mint} -d cems_db; do
               echo "  postgres not ready yet, waiting..."
               sleep 3
             done

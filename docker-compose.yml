@@ -2,7 +2,7 @@ services:
   # ─── PostgreSQL ──────────────────────────────────────────
   postgres:
     image: postgres:16-alpine
-    container_name: cems-postgres
+    container_name: mint-postgres
     restart: unless-stopped
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-cems}
@@ -13,14 +13,14 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U cems"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-mint}"]
       interval: 5s
       timeout: 5s
       retries: 10
       start_period: 10s
   postgres-test:
     image: postgres:16-alpine
-    container_name: cems-postgres-test
+    container_name: mint-postgres-test
     restart: unless-stopped
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-cems}
@@ -31,7 +31,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U cems"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-mint}"]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -40,7 +40,7 @@ services:
   # ─── Redis ───────────────────────────────────────────────
   redis:
     image: redis:7-alpine
-    container_name: cems-redis
+    container_name: mint-redis
     restart: unless-stopped
     ports:
       - "6379:6379"
@@ -58,7 +58,7 @@ services:
       context: ./apps/api
       dockerfile: Dockerfile
       target: development # use the "development" stage → npm run start:dev
-    container_name: cems-api
+    container_name: mint-api
     restart: unless-stopped
     ports:
       - "4000:4000"
@@ -83,7 +83,7 @@ services:
       TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
       TELEGRAM_BOT_USERNAME: ${TELEGRAM_BOT_USERNAME}
       TELEGRAM_CHANNEL_ID: ${TELEGRAM_CHANNEL_ID}
-      CEMS_WEB_URL: ${FRONTEND_URL}
+      MINT_WEB_URL: ${FRONTEND_URL}
       ML_SERVICE_URL: ${ML_SERVICE_URL:-http://ml-service:8000}
     volumes:
       # Mount source for live-reload (node_modules stays inside container)
@@ -103,7 +103,7 @@ services:
       context: .
       dockerfile: apps/web/Dockerfile
       target: development
-    container_name: cems-web
+    container_name: mint-web
     restart: unless-stopped
     ports:
       - "3001:3001"
@@ -126,7 +126,7 @@ services:
     build:
       context: ./nginx
       dockerfile: Dockerfile
-    container_name: cems-nginx
+    container_name: mint-nginx
     restart: unless-stopped
     ports:
       - "80:80"
@@ -140,7 +140,7 @@ services:
     build:
       context: ./apps/ml-service
       dockerfile: Dockerfile
-    container_name: cems-ml-service
+    container_name: mint-ml-service
     restart: unless-stopped
     ports:
       - "8000:8000"
@@ -162,7 +162,7 @@ services:
   # ─── Maildev (Local Email Catcher) ───────────────────────
   maildev:
     image: maildev/maildev:2.1.0
-    container_name: cems-maildev
+    container_name: mint-maildev
     restart: unless-stopped
     ports:
       - "1080:1080" # Web UI

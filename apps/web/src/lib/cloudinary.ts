@@ -16,7 +16,7 @@ export async function uploadToCloudinary(file: File): Promise<string> {
   const formData = new FormData();
   formData.append("file", file);
   formData.append("upload_preset", uploadPreset);
-  formData.append("folder", "cems/profiles"); // Optional: organize uploads
+  formData.append("folder", "mint/profiles"); // Optional: organize uploads
 
   try {
     const response = await fetch(
