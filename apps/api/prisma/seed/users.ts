@@ -27,13 +27,33 @@ async function main() {
     throw new Error('Roles not found. Please run `npm run script_roles` first.');
   }
 
-  // Create a Department for users
-  const dept = await prisma.department.create({
-    data: {
-      name: 'Software Engineering',
-      faculty: 'College of Computing',
-    },
-  });
+  // Ensure core computing departments exist
+  const computingDepts = [
+    'Software Engineering',
+    'Computer Science',
+    'Information Systems',
+    'Information Technology',
+    'Data Science',
+  ];
+  for (const name of computingDepts) {
+    const exists = await prisma.department.findFirst({ where: { name } });
+    if (!exists) {
+      await prisma.department.create({
+        data: { name, faculty: 'College of Computing' },
+      });
+    }
+  }
+
+  const dept =
+    (await prisma.department.findFirst({
+      where: { name: 'Software Engineering' },
+    })) ??
+    (await prisma.department.create({
+      data: {
+        name: 'Software Engineering',
+        faculty: 'College of Computing',
+      },
+    }));
 
   const passwordHash = await argon2.hash('Password123!', {
     type: argon2.argon2id,

@@ -75,6 +75,10 @@ async function main() {
   // ── DEPARTMENTS ──────────────────────────────────────────────────
   const depts = [
     { name: 'Software Engineering', faculty: 'College of Computing' },
+    { name: 'Computer Science', faculty: 'College of Computing' },
+    { name: 'Information Systems', faculty: 'College of Computing' },
+    { name: 'Information Technology', faculty: 'College of Computing' },
+    { name: 'Data Science', faculty: 'College of Computing' },
     { name: 'Electrical Engineering', faculty: 'College of Engineering' },
     { name: 'Civil Engineering', faculty: 'College of Engineering' },
     { name: 'Mechanical Engineering', faculty: 'College of Engineering' },

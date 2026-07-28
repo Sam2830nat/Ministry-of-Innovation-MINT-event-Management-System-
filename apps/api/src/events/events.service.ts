@@ -29,7 +29,7 @@ import { TelegramService } from '../telegram/telegram.service';
 
 // Allowed status transitions
 const STATUS_TRANSITIONS: Record<string, string[]> = {
-  DRAFT: ['PENDING', 'CANCELLED'],
+  DRAFT: ['PENDING', 'APPROVED', 'CANCELLED'],
   PENDING: ['APPROVED', 'REJECTED', 'CANCELLED'],
   APPROVED: ['LIVE', 'CANCELLED'],
   REJECTED: [],
@@ -270,6 +270,20 @@ export class EventsService {
 
   async approve(eventId: string, adminId?: string) {
     const event = await this.findOneRaw(eventId);
+    const currentStatus = await this.prisma.eventStatus.findUnique({
+      where: { id: event.statusId },
+    });
+
+    // Admin may approve from DRAFT or PENDING. From DRAFT, jump straight to APPROVED
+    // so guests/public can see it without a separate submit step.
+    if (currentStatus?.statusName === 'DRAFT') {
+      // Allowed by STATUS_TRANSITIONS.DRAFT → APPROVED
+    } else if (currentStatus?.statusName !== 'PENDING') {
+      throw new BadRequestException(
+        `Cannot approve an event with status "${currentStatus?.statusName}". Submit it first or use an event in DRAFT/PENDING.`,
+      );
+    }
+
     const updated = await this.transitionStatus(event.id, event.statusId, 'APPROVED');
 
     if (!event.createdBy) {
@@ -364,8 +378,8 @@ export class EventsService {
     return updated;
   }
 
-  async goLive(eventId: string, userId?: string) {
-    if (userId) {
+  async goLive(eventId: string, userId?: string, isAdmin = false) {
+    if (userId && !isAdmin) {
       await this.assertOrganizerOrCreator(eventId, userId);
     }
     const event = await this.findOneRaw(eventId);

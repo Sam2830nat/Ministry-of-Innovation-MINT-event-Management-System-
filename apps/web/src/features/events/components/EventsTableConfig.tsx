@@ -143,30 +143,32 @@ export const getEventsColumns = (
             </button>
           )}
 
-          {/* Admin: Approve/Reject Pending */}
-          {isAdmin && status === "PENDING" && (
+          {/* Admin: Approve Draft or Pending (APPROVED is visible to guests/public) */}
+          {isAdmin && (status === "DRAFT" || status === "PENDING") && (
             <>
               <button 
                 type="button" 
                 onClick={() => onApprove(event)}
                 className="p-2 text-emerald-500 hover:bg-emerald-50 rounded-lg transition-all"
-                title="Approve Event"
+                title="Approve Event (publish to guests)"
               >
                 <Check size={18} />
               </button>
-              <button 
-                type="button" 
-                onClick={() => onReject(event)}
-                className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-all"
-                title="Reject Event"
-              >
-                <X size={18} />
-              </button>
+              {status === "PENDING" && (
+                <button 
+                  type="button" 
+                  onClick={() => onReject(event)}
+                  className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-all"
+                  title="Reject Event"
+                >
+                  <X size={18} />
+                </button>
+              )}
             </>
           )}
 
-          {/* Organizer: Go Live Approved */}
-          {isOrganizer && status === "APPROVED" && (
+          {/* Organizer or Admin: Go Live Approved */}
+          {(isOrganizer || isAdmin) && status === "APPROVED" && (
             <button 
               type="button" 
               onClick={() => onGoLive(event)}

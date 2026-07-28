@@ -85,15 +85,16 @@ export class EventsController {
   }
 
   @Post(':id/go-live')
-  @Roles('Organizer')
+  @Roles('Organizer', 'Admin')
   @ApiOperation({ summary: 'Manually set an event to LIVE' })
   goLive(@Param('id') id: string, @GetUser() user: AuthUser) {
-    return this.eventsService.goLive(id, user.id);
+    const isAdmin = user.role?.toUpperCase() === 'ADMIN';
+    return this.eventsService.goLive(id, user.id, isAdmin);
   }
 
   @Patch(':id/approve')
   @Roles('Admin')
-  @ApiOperation({ summary: 'Approve event (PENDING → APPROVED). Admin only.' })
+  @ApiOperation({ summary: 'Approve event (DRAFT/PENDING → APPROVED). Admin only. Guests can then see it.' })
   approve(@Param('id') id: string, @GetUser() user: AuthUser) {
     return this.eventsService.approve(id, user.id);
   }
