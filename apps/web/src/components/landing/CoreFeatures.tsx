@@ -221,7 +221,7 @@ const organizerFeatures = [
       <div className="mt-5 flex flex-wrap gap-1.5">
         {[
           { label: "Public", color: "bg-green-50 text-green-600 dark:bg-green-500/10 dark:text-green-400 border-green-100 dark:border-green-500/20" },
-          { label: "Private", color: "bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400 border-blue-100 dark:border-blue-500/20" },
+          { label: "Private", color: "bg-brand text-brand dark:bg-brand/10 dark:text-brand border-brand dark:border-brand/20" },
           { label: "Invite Only", color: "bg-orange-50 text-orange-600 dark:bg-orange-500/10 dark:text-orange-400 border-orange-100 dark:border-orange-500/20" },
           { label: "Restricted", color: "bg-purple-50 text-purple-600 dark:bg-purple-500/10 dark:text-purple-400 border-purple-100 dark:border-purple-500/20" },
         ].map((a) => (
@@ -266,12 +266,12 @@ const organizerFeatures = [
     tag: "Telegram-native",
     tagColor: "bg-brand/10 text-brand",
     micro: (
-      <div className="mt-5 flex items-start gap-3 p-3 rounded-xl bg-sky-50 dark:bg-sky-500/5 border border-sky-100 dark:border-sky-500/10">
-        <div className="w-8 h-8 rounded-full bg-sky-500 flex items-center justify-center shrink-0">
+      <div className="mt-5 flex items-start gap-3 p-3 rounded-xl bg-brand dark:bg-brand/5 border border-brand dark:border-brand/10">
+        <div className="w-8 h-8 rounded-full bg-brand flex items-center justify-center shrink-0">
           <Send size={14} className="text-white" />
         </div>
         <div>
-          <p className="text-[10px] font-black text-sky-600 dark:text-sky-400">MInT Bot</p>
+          <p className="text-[10px] font-black text-brand dark:text-brand">MInT Bot</p>
           <p className="text-[10px] text-gray-600 dark:text-gray-400 mt-0.5">New event: "AI Summit 2026" — Register now!</p>
         </div>
       </div>

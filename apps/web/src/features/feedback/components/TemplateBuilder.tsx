@@ -18,7 +18,7 @@ interface TemplateBuilderProps {
 const TYPE_OPTIONS: { value: FeedbackQuestionType; label: string; Icon: React.ElementType; color: string }[] = [
     { value: "RATING",          label: "Star Rating (1–5)",  Icon: Star,      color: "text-amber-500" },
     { value: "SCALE",           label: "NPS Scale (1–10)",   Icon: BarChart2, color: "text-violet-500" },
-    { value: "TEXT",            label: "Long Text",           Icon: AlignLeft, color: "text-blue-500" },
+    { value: "TEXT",            label: "Long Text",           Icon: AlignLeft, color: "text-brand" },
     { value: "SHORT_TEXT",      label: "Short Text",          Icon: Type,      color: "text-teal-500" },
     { value: "MULTIPLE_CHOICE", label: "Multiple Choice",     Icon: List,      color: "text-orange-500" },
 ];

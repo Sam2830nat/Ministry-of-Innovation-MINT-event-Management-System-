@@ -10,7 +10,7 @@ interface RoleResponse {
 }
 
 export async function fetchRoles() {
-    const res = await apiFetch(`/role`, {
+    const res = await apiFetch(`/api/role`, {
         method: 'GET',
     });
 

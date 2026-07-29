@@ -99,7 +99,7 @@ export const TicketModal = ({
             {/* ─── Header: Brand Gradient ─── */}
             <div className="relative overflow-hidden">
               {/* Gradient background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-brand via-brand-hover to-sky-900" />
+              <div className="absolute inset-0 bg-gradient-to-br from-brand via-brand-hover to-brand" />
 
               {/* Decorative circles */}
               <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-white/[0.07]" />

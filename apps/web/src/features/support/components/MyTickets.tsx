@@ -34,7 +34,7 @@ export function MyTickets() {
         switch (status) {
             case 'OPEN': return 'bg-emerald-50 text-emerald-600 border-emerald-100';
             case 'IN_PROGRESS': return 'bg-amber-50 text-amber-600 border-amber-100';
-            case 'RESOLVED': return 'bg-blue-50 text-blue-600 border-blue-100';
+            case 'RESOLVED': return 'bg-brand text-brand border-brand';
             case 'CLOSED': return 'bg-gray-50 text-gray-600 border-gray-100';
             default: return 'bg-gray-50 text-gray-600 border-gray-100';
         }

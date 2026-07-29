@@ -55,7 +55,7 @@ export function EventDetailTabs({ eventId, event, canManage, canEdit }: EventDet
           </div>
           <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700">
             <div className="flex items-center gap-2 mb-2">
-              <Hash className="h-4 w-4 text-blue-500" />
+              <Hash className="h-4 w-4 text-brand" />
               <h4 className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase">
                 Room
               </h4>

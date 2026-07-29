@@ -102,7 +102,7 @@ export function DashboardShortcuts({ isAdmin }: DashboardShortcutsProps) {
       desc: "Audit user permissions",
       icon: Users,
       href: "/dashboard/users",
-      color: "bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400",
+      color: "bg-brand dark:bg-brand/10 text-brand dark:text-brand",
     },
     {
       title: "System Logs",
@@ -120,7 +120,7 @@ export function DashboardShortcuts({ isAdmin }: DashboardShortcutsProps) {
       desc: "Manage your active list",
       icon: Calendar,
       href: "/dashboard/events",
-      color: "bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400",
+      color: "bg-brand dark:bg-brand/10 text-brand dark:text-brand",
     },
     {
       title: "Scanner",

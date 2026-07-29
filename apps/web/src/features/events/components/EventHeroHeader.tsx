@@ -25,7 +25,7 @@ export function EventHeroHeader({ event }: EventHeroHeaderProps) {
           className="object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-60"
         />
       ) : (
-        <div className="absolute inset-0 bg-linear-to-br from-brand/80 via-blue-600/60 to-purple-800/80 group-hover:scale-105 transition-transform duration-700" />
+        <div className="absolute inset-0 bg-linear-to-br from-brand/80 via-brand/60 to-purple-800/80 group-hover:scale-105 transition-transform duration-700" />
       )}
 
       <div className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>

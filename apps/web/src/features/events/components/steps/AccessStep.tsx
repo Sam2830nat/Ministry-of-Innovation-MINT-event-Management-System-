@@ -73,7 +73,7 @@ export function AccessStep({ data, onUpdate }: AccessStepProps) {
       description: "Manual invitation only. Only white-listed emails can register.",
       icon: Mail,
       color: "text-brand",
-      bg: "bg-blue-50"
+      bg: "bg-brand"
     }
   ];
 

@@ -97,13 +97,13 @@ export default function MyEventsFeedbackPage() {
             </div>
 
             {/* Semi-anon notice */}
-            <div className="flex items-start gap-3 px-5 py-4 bg-sky-50 dark:bg-sky-500/10 rounded-xl border border-sky-100 dark:border-sky-500/20">
-                <EyeOff size={16} className="text-sky-500 shrink-0 mt-0.5" />
+            <div className="flex items-start gap-3 px-5 py-4 bg-brand dark:bg-brand/10 rounded-xl border border-brand dark:border-brand/20">
+                <EyeOff size={16} className="text-brand shrink-0 mt-0.5" />
                 <div>
-                    <p className="text-xs font-black text-sky-700 dark:text-sky-400 uppercase tracking-widest">
+                    <p className="text-xs font-black text-brand dark:text-brand uppercase tracking-widest">
                         Semi-Anonymous View
                     </p>
-                    <p className="text-xs text-sky-600 dark:text-sky-300/70 mt-0.5 leading-relaxed">
+                    <p className="text-xs text-brand dark:text-brand/70 mt-0.5 leading-relaxed">
                         Attendee names are partially masked to protect privacy. Emails are shown in abbreviated form (e.g. j***@gmail.com). Only admins can see full identities.
                     </p>
                 </div>

@@ -47,7 +47,7 @@ export function EventDetailSidebar({ event }: EventDetailSidebarProps) {
         />
         <InfoRow
           icon={Tag}
-          iconClassName="bg-blue-50 text-blue-500"
+          iconClassName="bg-brand text-brand"
           label="Type"
           value={event.eventType?.name || "Standard"}
         />
@@ -90,7 +90,7 @@ export function EventDetailSidebar({ event }: EventDetailSidebarProps) {
         <p className="text-[10px] font-black text-gray-300 dark:text-gray-600 uppercase tracking-[0.3em] mb-6 px-4">Date & Time</p>
         <InfoRow
           icon={CalendarClock}
-          iconClassName="bg-blue-50 text-blue-500"
+          iconClassName="bg-brand text-brand"
           label="Start Time"
           value={format(new Date(event.startTime), "PPP")}
           sub={format(new Date(event.startTime), "p")}

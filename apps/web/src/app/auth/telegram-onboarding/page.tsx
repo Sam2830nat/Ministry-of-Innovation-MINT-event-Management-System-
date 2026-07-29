@@ -149,7 +149,7 @@ function TelegramOnboardingForm() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
 
       {/* Glow Effect */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-blue-500/10 blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-brand/10 blur-[100px] pointer-events-none" />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -158,7 +158,7 @@ function TelegramOnboardingForm() {
         className="relative w-full max-w-md overflow-hidden rounded-2xl border border-gray-800 bg-gray-950/60 p-8 backdrop-blur-xl shadow-2xl shadow-blue-500/5"
       >
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400">
+          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand/10 border border-brand/20 text-brand">
             <GraduationCap className="h-6 w-6" />
           </div>
           <h1 className="text-2xl font-black text-white tracking-tight">Complete Setup</h1>
@@ -181,7 +181,7 @@ function TelegramOnboardingForm() {
                 onChange={(e) => setFullName(e.target.value)}
                 placeholder="Enter your full name"
                 required
-                className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-gray-800 bg-gray-900/30 text-white text-sm font-medium placeholder:text-gray-600 focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500/30 transition-all"
+                className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-gray-800 bg-gray-900/30 text-white text-sm font-medium placeholder:text-gray-600 focus:outline-none focus:ring-4 focus:ring-brand/10 focus:border-brand/30 transition-all"
               />
             </div>
           </div>
@@ -199,7 +199,7 @@ function TelegramOnboardingForm() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="yourname@mint.gov.et"
                 required
-                className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-gray-800 bg-gray-900/30 text-white text-sm font-medium placeholder:text-gray-600 focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500/30 transition-all"
+                className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-gray-800 bg-gray-900/30 text-white text-sm font-medium placeholder:text-gray-600 focus:outline-none focus:ring-4 focus:ring-brand/10 focus:border-brand/30 transition-all"
               />
             </div>
             <p className="text-[10px] text-gray-500 font-medium">
@@ -217,7 +217,7 @@ function TelegramOnboardingForm() {
                 value={departmentId}
                 onChange={(e) => setDepartmentId(e.target.value)}
                 disabled={isLoadingDepartments}
-                className="w-full px-4 py-3.5 rounded-xl border border-gray-800 bg-gray-900/30 text-white text-sm font-medium focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500/30 transition-all appearance-none cursor-pointer disabled:opacity-50"
+                className="w-full px-4 py-3.5 rounded-xl border border-gray-800 bg-gray-900/30 text-white text-sm font-medium focus:outline-none focus:ring-4 focus:ring-brand/10 focus:border-brand/30 transition-all appearance-none cursor-pointer disabled:opacity-50"
               >
                 <option value="" className="bg-gray-950 text-gray-500">
                   {isLoadingDepartments ? "Loading departments..." : "Select your department"}
@@ -236,7 +236,7 @@ function TelegramOnboardingForm() {
           <button
             type="submit"
             disabled={isSubmitting || isLoadingDepartments}
-            className="group relative w-full flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-500 text-white font-black text-[10px] uppercase tracking-[0.15em] py-4 rounded-xl shadow-xl shadow-blue-500/10 transition-all disabled:opacity-50 overflow-hidden"
+            className="group relative w-full flex items-center justify-center gap-3 bg-brand hover:bg-brand text-white font-black text-[10px] uppercase tracking-[0.15em] py-4 rounded-xl shadow-xl shadow-blue-500/10 transition-all disabled:opacity-50 overflow-hidden"
           >
             <span className="relative z-10">
               {isSubmitting ? "Finalizing Account..." : "Complete Registration"}
@@ -259,7 +259,7 @@ export default function TelegramOnboardingPage() {
     <Suspense fallback={
       <div className="min-h-screen flex items-center justify-center p-4 bg-radial from-gray-900 via-black to-black">
         <div className="flex flex-col items-center justify-center space-y-4">
-          <Loader2 className="h-8 w-8 animate-spin text-blue-500" />
+          <Loader2 className="h-8 w-8 animate-spin text-brand" />
           <p className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">Loading Registration...</p>
         </div>
       </div>

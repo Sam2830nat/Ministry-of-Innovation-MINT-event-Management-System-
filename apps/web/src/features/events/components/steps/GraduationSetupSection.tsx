@@ -33,7 +33,7 @@ const DEFAULT_TIER_CONFIG: TierConfig = {
 function getTierFromConfig(gpa: number, cfg: TierConfig) {
   if (gpa >= cfg.distinguishedMinGpa) return { tier: "DISTINGUISHED", label: "Distinguished", icon: Star, slots: cfg.distinguishedSlots, bg: "bg-amber-50", text: "text-amber-700", border: "border-amber-200" };
   if (gpa >= cfg.honorsMinGpa)        return { tier: "HONORS",        label: "Honors",        icon: Medal, slots: cfg.honorsSlots,        bg: "bg-violet-50", text: "text-violet-700", border: "border-violet-200" };
-  return                                     { tier: "GRADUATE",      label: "Graduate",      icon: GraduationCap, slots: cfg.graduateSlots, bg: "bg-sky-50",    text: "text-sky-700",    border: "border-sky-200"    };
+  return                                     { tier: "GRADUATE",      label: "Graduate",      icon: GraduationCap, slots: cfg.graduateSlots, bg: "bg-brand",    text: "text-brand",    border: "border-brand"    };
 }
 
 interface GuestRow { email: string; fullName: string; gpa: string; }
@@ -84,7 +84,7 @@ function TierConfigPanel({ eventId, config, onSaved }: {
   };
 
   const preview = [
-    { label: "Graduate",      gpa: `< ${draft.honorsMinGpa}`,        slots: draft.graduateSlots,      icon: GraduationCap, text: "text-sky-700",    bg: "bg-sky-50",    border: "border-sky-100" },
+    { label: "Graduate",      gpa: `< ${draft.honorsMinGpa}`,        slots: draft.graduateSlots,      icon: GraduationCap, text: "text-brand",    bg: "bg-brand",    border: "border-brand" },
     { label: "Honors",        gpa: `${draft.honorsMinGpa}–${draft.distinguishedMinGpa}`, slots: draft.honorsSlots, icon: Medal, text: "text-violet-700", bg: "bg-violet-50", border: "border-violet-100" },
     { label: "Distinguished", gpa: `≥ ${draft.distinguishedMinGpa}`, slots: draft.distinguishedSlots, icon: Star,          text: "text-amber-700",  bg: "bg-amber-50",  border: "border-amber-100"  },
   ];
@@ -146,7 +146,7 @@ function TierConfigPanel({ eventId, config, onSaved }: {
             <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest">Guest Slots Per Tier</p>
             <div className="grid grid-cols-3 gap-2">
               {[
-                { key: "graduateSlots" as const, label: "Graduate", color: "text-sky-600" },
+                { key: "graduateSlots" as const, label: "Graduate", color: "text-brand" },
                 { key: "honorsSlots"   as const, label: "Honors",   color: "text-violet-600" },
                 { key: "distinguishedSlots" as const, label: "Distinguished", color: "text-amber-600" },
               ].map(({ key, label, color }) => (

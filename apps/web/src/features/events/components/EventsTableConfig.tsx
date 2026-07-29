@@ -8,7 +8,7 @@ import { truncate } from "@/lib/utils";
 export const getStatusColor = (status: EventStatusName) => {
   switch (status) {
     case "LIVE": return "bg-emerald-50 text-emerald-600 border-emerald-100";
-    case "APPROVED": return "bg-blue-50 text-blue-600 border-blue-100";
+    case "APPROVED": return "bg-brand text-brand border-brand";
     case "PENDING": return "bg-amber-50 text-amber-600 border-amber-100";
     case "DRAFT": return "bg-gray-50 text-gray-400 border-gray-100";
     case "CANCELLED": return "bg-red-50 text-red-600 border-red-100";

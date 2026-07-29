@@ -87,7 +87,7 @@ export const DetailCard = ({
   return (
     <div className="bg-white dark:bg-gray-900 rounded-lg shadow-xl dark:shadow-none overflow-hidden border border-gray-100 dark:border-gray-800 h-full">
       {/* Blue banner */}
-      <div className="bg-blue-600 px-6 py-8 text-white">
+      <div className="bg-brand px-6 py-8 text-white">
         <div className="flex flex-col items-center text-center gap-3">
           <div className="p-4 bg-white/20 rounded-full">
             <BannerIcon className="h-10 w-10" />
@@ -95,7 +95,7 @@ export const DetailCard = ({
           <div>
             <h2 className="text-xl font-bold leading-tight">{banner.title}</h2>
             {banner.subtitle && (
-              <p className="text-blue-100 text-sm mt-1">{banner.subtitle}</p>
+              <p className="text-brand text-sm mt-1">{banner.subtitle}</p>
             )}
           </div>
           {banner.badge}

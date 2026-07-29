@@ -28,7 +28,7 @@ export function AgendaTimeline({ sessions }: AgendaTimelineProps) {
   return (
     <div className="relative pl-12 sm:pl-16 space-y-12 pb-12 overflow-hidden">
       {/* The Connecting Vertical Line */}
-      <div className="absolute left-6 sm:left-8 top-8 bottom-4 w-1 bg-linear-to-b from-brand/80 via-blue-400/40 to-transparent rounded-full shadow-lg shadow-brand/10" />
+      <div className="absolute left-6 sm:left-8 top-8 bottom-4 w-1 bg-linear-to-b from-brand/80 via-brand/40 to-transparent rounded-full shadow-lg shadow-brand/10" />
 
       {sortedSessions.map((session, index) => {
         const isLast = index === sortedSessions.length - 1;

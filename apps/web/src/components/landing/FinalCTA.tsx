@@ -35,7 +35,7 @@ export default function FinalCTA() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="text-blue-50/70 text-xl md:text-2xl mb-16 max-w-3xl mx-auto leading-relaxed font-medium"
+          className="text-brand/70 text-xl md:text-2xl mb-16 max-w-3xl mx-auto leading-relaxed font-medium"
         >
           Join MInT staff, partners, and guests coordinating research, digitalization,
           and technology programs — from concept notes to national innovation weeks.
@@ -50,7 +50,7 @@ export default function FinalCTA() {
         >
           <Link
             href="/signup"
-            className="group relative w-full sm:w-auto bg-white text-brand px-12 py-5 rounded-lg shadow-2xl shadow-black/20 hover:bg-blue-50 transition-all font-brand font-black text-xs uppercase tracking-[0.2em] flex items-center justify-center gap-3 overflow-hidden"
+            className="group relative w-full sm:w-auto bg-white text-brand px-12 py-5 rounded-lg shadow-2xl shadow-black/20 hover:bg-brand transition-all font-brand font-black text-xs uppercase tracking-[0.2em] flex items-center justify-center gap-3 overflow-hidden"
           >
             <span className="relative z-10">GET STARTED NOW</span>
             <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />

@@ -30,7 +30,7 @@ export default function AuthShell({
         <motion.div
           animate={{ scale: [1, 1.3, 1], y: [0, 40, 0] }}
           transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-          className="absolute bottom-20 right-10 w-80 h-80 bg-blue-500/10 rounded-full blur-[100px]"
+          className="absolute bottom-20 right-10 w-80 h-80 bg-brand/10 rounded-full blur-[100px]"
         />
 
         {/* Top: Brand Logo */}

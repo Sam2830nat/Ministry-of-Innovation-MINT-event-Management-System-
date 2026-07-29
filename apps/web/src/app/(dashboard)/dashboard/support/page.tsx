@@ -87,7 +87,7 @@ export default function SupportPage() {
                     title="In Progress" 
                     value={stats.inProgress} 
                     icon={Clock}
-                    className="border-blue-100/50 dark:border-blue-500/10"
+                    className="border-brand/50 dark:border-brand/10"
                 />
                 <CemsMetricCard 
                     title="Resolved" 

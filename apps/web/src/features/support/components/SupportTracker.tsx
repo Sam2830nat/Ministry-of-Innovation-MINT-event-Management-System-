@@ -117,7 +117,7 @@ export function SupportTracker() {
                 <div className={cn(
                     "px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest border shadow-sm",
                     ticket?.status === 'OPEN' ? 'bg-amber-50 text-amber-600 border-amber-100' :
-                    ticket?.status === 'IN_PROGRESS' ? 'bg-blue-50 text-blue-600 border-blue-100' :
+                    ticket?.status === 'IN_PROGRESS' ? 'bg-brand text-brand border-brand' :
                     ticket?.status === 'RESOLVED' ? 'bg-emerald-50 text-emerald-600 border-emerald-100' :
                     'bg-gray-50 text-gray-400 border-gray-100'
                 )}>

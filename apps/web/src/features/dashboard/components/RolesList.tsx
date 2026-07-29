@@ -68,7 +68,7 @@ export function RolesList() {
                                     <div className="flex flex-wrap gap-1 max-h-32 overflow-y-auto">
                                         {routeAccess.length > 0 ? (
                                             routeAccess.map(route => (
-                                                <Badge key={route} variant="secondary" className="text-[10px] bg-blue-50 text-blue-700 hover:bg-blue-100 border-blue-200">
+                                                <Badge key={route} variant="secondary" className="text-[10px] bg-brand text-brand hover:bg-brand border-brand">
                                                     {route}
                                                 </Badge>
                                             ))

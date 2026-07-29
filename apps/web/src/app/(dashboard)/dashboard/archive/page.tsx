@@ -268,7 +268,7 @@ export default function ArchivePage() {
                 {/* Stat Card 1 */}
                 <div className="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow group">
                   <div className="flex items-center justify-between mb-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <div className="w-8 h-8 rounded-lg bg-brand dark:bg-brand/10 text-brand dark:text-brand flex items-center justify-center group-hover:scale-110 transition-transform">
                       <Users size={16} />
                     </div>
                     <span className="text-[8px] font-black text-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 px-1.5 py-0.5 rounded-md uppercase tracking-widest">
@@ -317,7 +317,7 @@ export default function ArchivePage() {
                       </div>
                       <div className="h-2 w-full bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-blue-500 rounded-full"
+                          className="h-full bg-brand rounded-full"
                           style={{
                             width: `${selectedEvent.totalRegistrations}`,
                           }}

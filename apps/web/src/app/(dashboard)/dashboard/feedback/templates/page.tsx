@@ -18,7 +18,7 @@ import { FeedbackTemplate } from "@/features/feedback/types";
 const TYPE_ICON: Record<string, React.ReactNode> = {
     RATING: <Star size={11} className="text-amber-500" />,
     SCALE: <Scale size={11} className="text-violet-500" />,
-    TEXT: <AlignLeft size={11} className="text-blue-500" />,
+    TEXT: <AlignLeft size={11} className="text-brand" />,
     SHORT_TEXT: <Type size={11} className="text-teal-500" />,
     MULTIPLE_CHOICE: <List size={11} className="text-orange-500" />,
 };

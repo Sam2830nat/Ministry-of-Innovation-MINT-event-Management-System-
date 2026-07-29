@@ -29,9 +29,9 @@ const TIER_CONFIG = {
   GRADUATE: {
     label: "Graduate",
     icon: GraduationCap,
-    color: "from-sky-500 to-sky-800",
-    badge: "bg-sky-100 text-sky-800 border-sky-200",
-    border: "border-sky-300",
+    color: "from-brand to-brand",
+    badge: "bg-brand text-brand border-brand",
+    border: "border-brand",
   },
 };
 
@@ -206,7 +206,7 @@ function GraduationClaimForm() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 dark:bg-black flex items-center justify-center">
-        <Loader2 className="animate-spin text-sky-500" size={40} />
+        <Loader2 className="animate-spin text-brand" size={40} />
       </div>
     );
   }
@@ -278,11 +278,11 @@ function GraduationClaimForm() {
             <div key={link.parentLabel} className="bg-white dark:bg-gray-900 rounded-lg p-6 shadow border border-gray-100 dark:border-gray-800 space-y-3">
               <p className="text-xs font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest">{link.parentLabel} — Telegram</p>
               <div className="flex items-center gap-3 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700">
-                <Send size={16} className="text-sky-500 shrink-0" />
+                <Send size={16} className="text-brand shrink-0" />
                 <p className="text-sm text-gray-700 dark:text-gray-300 truncate flex-1">{link.deepLink}</p>
                 <button
                   onClick={() => copyLink(link.deepLink)}
-                  className="shrink-0 w-8 h-8 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-sky-50 dark:hover:bg-sky-500/10 hover:border-sky-200 dark:hover:border-sky-500/20 transition-colors"
+                  className="shrink-0 w-8 h-8 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-brand dark:hover:bg-brand/10 hover:border-brand dark:hover:border-brand/20 transition-colors"
                 >
                   {copied === link.deepLink ? <Check size={14} className="text-emerald-500" /> : <Copy size={14} className="text-gray-400 dark:text-gray-500" />}
                 </button>
@@ -397,7 +397,7 @@ function GraduationClaimForm() {
             </div>
 
             {parent.deliveryMethod === "TELEGRAM" ? (
-              <div className="flex items-center gap-3 px-4 py-3 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700 focus-within:border-sky-300 transition-colors">
+              <div className="flex items-center gap-3 px-4 py-3 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700 focus-within:border-brand transition-colors">
                 <span className="text-gray-400 font-bold text-sm">@</span>
                 <input
                   type="text"
@@ -408,7 +408,7 @@ function GraduationClaimForm() {
                 />
               </div>
             ) : (
-              <div className="flex items-center gap-3 px-4 py-3 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700 focus-within:border-sky-300 transition-colors">
+              <div className="flex items-center gap-3 px-4 py-3 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700 focus-within:border-brand transition-colors">
                 <Mail size={14} className="text-gray-400 shrink-0" />
                 <input
                   type="email"
@@ -435,7 +435,7 @@ function GraduationClaimForm() {
               <p className="text-[10px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-3">Parent Names</p>
               <div className="space-y-2">
                 {bundleParents.map((p, i) => (
-                  <div key={i} className="flex items-center gap-3 px-4 py-3 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700 focus-within:border-sky-300 transition-colors">
+                  <div key={i} className="flex items-center gap-3 px-4 py-3 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700 focus-within:border-brand transition-colors">
                     <Users size={14} className="text-gray-400 shrink-0" />
                     <input
                       type="text"
@@ -453,7 +453,7 @@ function GraduationClaimForm() {
             <div>
               <p className="text-[10px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-1">Delivery Email</p>
               <p className="text-[10px] text-gray-400 dark:text-gray-500 mb-3">All QR pass PDFs will be sent here. Defaults to your invitation email.</p>
-              <div className="flex items-center gap-3 px-4 py-3 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700 focus-within:border-sky-300 transition-colors">
+              <div className="flex items-center gap-3 px-4 py-3 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700 focus-within:border-brand transition-colors">
                 <Mail size={14} className="text-gray-400 shrink-0" />
                 <input
                   id="bundle-delivery-email"
@@ -466,9 +466,9 @@ function GraduationClaimForm() {
               </div>
             </div>
 
-            <div className="flex items-start gap-2 p-3 bg-sky-50 dark:bg-sky-500/10 rounded-lg border border-sky-100 dark:border-sky-500/20">
-              <Package size={14} className="text-sky-500 shrink-0 mt-0.5" />
-              <p className="text-[11px] text-sky-700 dark:text-sky-400 leading-relaxed">
+            <div className="flex items-start gap-2 p-3 bg-brand dark:bg-brand/10 rounded-lg border border-brand dark:border-brand/20">
+              <Package size={14} className="text-brand shrink-0 mt-0.5" />
+              <p className="text-[11px] text-brand dark:text-brand leading-relaxed">
                 All {bundleParents.length} QR pass PDFs will be sent as email attachments. You can then print or forward each one to the respective guest.
               </p>
             </div>
@@ -510,7 +510,7 @@ export default function GraduationClaimPage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen bg-gray-50 dark:bg-black flex items-center justify-center">
-        <Loader2 className="animate-spin text-sky-500" size={40} />
+        <Loader2 className="animate-spin text-brand" size={40} />
       </div>
     }>
       <GraduationClaimForm />

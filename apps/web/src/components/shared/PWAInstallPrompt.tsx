@@ -56,14 +56,14 @@ function IOSInstructions({ onClose }: { onClose: () => void }) {
     >
       <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/95 shadow-2xl shadow-black/40 backdrop-blur-xl">
         {/* Gradient top bar */}
-        <div className="h-1 w-full bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-500" />
+        <div className="h-1 w-full bg-gradient-to-r from-brand via-brand to-indigo-500" />
 
         <div className="p-5">
           {/* Header */}
           <div className="mb-4 flex items-start justify-between gap-3">
             <div className="flex items-center gap-3">
               {/* App icon */}
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 shadow-lg shadow-sky-500/30">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand to-brand shadow-lg shadow-sky-500/30">
                 <span className="text-xl font-black text-white">C</span>
               </div>
               <div>
@@ -89,7 +89,7 @@ function IOSInstructions({ onClose }: { onClose: () => void }) {
             {[
               {
                 Icon: Share,
-                color: "bg-blue-500/10 text-blue-400",
+                color: "bg-brand/10 text-brand",
                 text: (
                   <>
                     Tap the <span className="font-black text-white">Share</span> button at the
@@ -109,7 +109,7 @@ function IOSInstructions({ onClose }: { onClose: () => void }) {
               },
               {
                 Icon: Check,
-                color: "bg-sky-500/10 text-sky-400",
+                color: "bg-brand/10 text-brand",
                 text: (
                   <>
                     Tap <span className="font-black text-white">Add</span> — MInT will appear
@@ -170,13 +170,13 @@ function NativeInstallPrompt({
     >
       <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/95 shadow-2xl shadow-black/40 backdrop-blur-xl">
         {/* Gradient accent bar */}
-        <div className="h-1 w-full bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-500" />
+        <div className="h-1 w-full bg-gradient-to-r from-brand via-brand to-indigo-500" />
 
         <div className="p-5">
           {/* Header row */}
           <div className="flex items-start gap-3">
             {/* App icon */}
-            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 shadow-lg shadow-sky-500/30">
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand to-brand shadow-lg shadow-sky-500/30">
               <span className="text-2xl font-black text-white">C</span>
             </div>
 
@@ -207,7 +207,7 @@ function NativeInstallPrompt({
                 key={i}
                 className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/5 px-2.5 py-1 text-[10px] font-semibold text-slate-400"
               >
-                <Icon className="h-3 w-3 text-sky-400" />
+                <Icon className="h-3 w-3 text-brand" />
                 {label}
               </span>
             ))}
@@ -223,7 +223,7 @@ function NativeInstallPrompt({
             </button>
             <button
               onClick={onInstall}
-              className="flex-1 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 py-2.5 text-xs font-black text-white shadow-lg shadow-sky-500/20 transition-all hover:from-sky-400 hover:to-blue-500 hover:shadow-sky-500/30 active:scale-95"
+              className="flex-1 rounded-xl bg-gradient-to-r from-brand to-brand py-2.5 text-xs font-black text-white shadow-lg shadow-sky-500/20 transition-all hover:from-brand hover:to-brand hover:shadow-sky-500/30 active:scale-95"
             >
               <Download className="mr-1.5 inline h-3.5 w-3.5" />
               Install Now

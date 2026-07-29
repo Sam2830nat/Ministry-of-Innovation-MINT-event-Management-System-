@@ -191,7 +191,7 @@ export function MyEventsCalendar({ events, onViewTicket }: MyEventsCalendarProps
                           <div className={cn(
                             "px-2 py-0.5 rounded-lg font-black uppercase tracking-widest text-[7px] flex items-center gap-1 shrink-0",
                             status === "CONFIRMED" ? "bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400" : 
-                            status === "PENDING" ? "bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400" : "bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400"
+                            status === "PENDING" ? "bg-brand dark:bg-brand/10 text-brand dark:text-brand" : "bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400"
                           )}>
                             {status === "CONFIRMED" ? <CheckCircle2 size={8} /> : <Clock size={8} />}
                             {status}

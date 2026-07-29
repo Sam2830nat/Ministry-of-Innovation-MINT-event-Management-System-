@@ -15,7 +15,7 @@ import { CemsButton } from "@/components/cems/CemsButton";
 const TIER = {
   DISTINGUISHED: { label: "Distinguished", icon: Star, bg: "bg-amber-50 dark:bg-amber-950/20", text: "text-amber-700 dark:text-amber-400", border: "border-amber-200 dark:border-amber-800", dot: "bg-amber-400" },
   HONORS:        { label: "Honors",        icon: Medal, bg: "bg-violet-50 dark:bg-violet-950/20", text: "text-violet-700 dark:text-violet-400", border: "border-violet-200 dark:border-violet-800", dot: "bg-violet-400" },
-  GRADUATE:      { label: "Graduate",      icon: GraduationCap, bg: "bg-sky-50 dark:bg-sky-950/20",    text: "text-sky-700 dark:text-sky-400",    border: "border-sky-200 dark:border-sky-800",    dot: "bg-sky-400"    },
+  GRADUATE:      { label: "Graduate",      icon: GraduationCap, bg: "bg-brand dark:bg-brand/20",    text: "text-brand dark:text-brand",    border: "border-brand dark:border-brand",    dot: "bg-brand"    },
 };
 
 interface TierConfig {
@@ -261,7 +261,7 @@ function GuestRow({ guest, eventId, onRefresh }: { guest: any; eventId: string; 
             <div key={gp.id} className="flex items-center gap-3 px-4 py-3 bg-white dark:bg-gray-900">
               <div className="w-6 h-6 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
                 {gp.deliveryMethod === "TELEGRAM"
-                  ? <Send size={10} className="text-sky-500" />
+                  ? <Send size={10} className="text-brand" />
                   : gp.deliveryMethod === "GUEST_EMAIL"
                   ? <Package size={10} className="text-emerald-500" />
                   : <Mail size={10} className="text-violet-500" />}
@@ -340,7 +340,7 @@ function TierConfigInline({ eventId }: { eventId: string }) {
   };
 
   const preview = [
-    { label: "Graduate",      gpa: `< ${cfg.honorsMinGpa}`,                         slots: cfg.graduateSlots,      icon: GraduationCap, text: "text-sky-700 dark:text-sky-400",       bg: "bg-sky-50 dark:bg-sky-950/20",       border: "border-sky-100 dark:border-sky-800"       },
+    { label: "Graduate",      gpa: `< ${cfg.honorsMinGpa}`,                         slots: cfg.graduateSlots,      icon: GraduationCap, text: "text-brand dark:text-brand",       bg: "bg-brand dark:bg-brand/20",       border: "border-brand dark:border-brand"       },
     { label: "Honors",        gpa: `${cfg.honorsMinGpa}–${cfg.distinguishedMinGpa}`, slots: cfg.honorsSlots,        icon: Medal,         text: "text-violet-700 dark:text-violet-400", bg: "bg-violet-50 dark:bg-violet-950/20", border: "border-violet-100 dark:border-violet-800" },
     { label: "Distinguished", gpa: `≥ ${cfg.distinguishedMinGpa}`,                   slots: cfg.distinguishedSlots, icon: Star,           text: "text-amber-700 dark:text-amber-400",  bg: "bg-amber-50 dark:bg-amber-950/20",   border: "border-amber-100 dark:border-amber-800"   },
   ];
@@ -394,7 +394,7 @@ function TierConfigInline({ eventId }: { eventId: string }) {
             <p className="text-[9px] font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-2">Guest Slots Per Tier</p>
             <div className="grid grid-cols-3 gap-2">
               {([
-                { key: "graduateSlots" as const,     label: "Graduate",      color: "text-sky-600 dark:text-sky-400" },
+                { key: "graduateSlots" as const,     label: "Graduate",      color: "text-brand dark:text-brand" },
                 { key: "honorsSlots" as const,        label: "Honors",        color: "text-violet-600 dark:text-violet-400" },
                 { key: "distinguishedSlots" as const, label: "Distinguished", color: "text-amber-600 dark:text-amber-400" },
               ]).map(({ key, label, color }) => (
@@ -450,7 +450,7 @@ export function GraduationGuestsTab({ eventId }: { eventId: string }) {
       <div className="grid grid-cols-4 gap-3">
         {[
           { label: "Total Guests",  value: guests.length,                        color: "text-gray-900 dark:text-white"           },
-          { label: "Invitations Sent",value: guests.length,                        color: "text-sky-600 dark:text-sky-400"           },
+          { label: "Invitations Sent",value: guests.length,                        color: "text-brand dark:text-brand"           },
           { label: "Passes Claimed",  value: `${claimed}/${guests.length}`,        color: "text-violet-600 dark:text-violet-400"     },
           { label: "QR Delivered",    value: `${deliveredPasses}/${totalPasses}`,    color: "text-emerald-600 dark:text-emerald-400"   },
         ].map(({ label, value, color }) => (

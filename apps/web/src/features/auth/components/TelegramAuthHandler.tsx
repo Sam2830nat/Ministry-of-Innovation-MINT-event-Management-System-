@@ -131,7 +131,7 @@ export function TelegramAuthHandler({ children }: { children: React.ReactNode })
   if (isAuthenticating) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-950 text-gray-400 font-brand">
-        <Loader2 className="w-10 h-10 animate-spin mb-4 text-blue-500" />
+        <Loader2 className="w-10 h-10 animate-spin mb-4 text-brand" />
         <p className="text-sm font-medium animate-pulse text-gray-200">
           Connecting to Ministry Events via Telegram...
         </p>

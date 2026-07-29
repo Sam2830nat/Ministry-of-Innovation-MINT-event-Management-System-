@@ -85,7 +85,7 @@ export function ProtectedRoute({ children }: { children: React.ReactNode }) {
   if (!_hasHydrated || isAuthorized === null) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-gray-500">
-        <Loader2 className="w-10 h-10 animate-spin mb-4 text-blue-600" />
+        <Loader2 className="w-10 h-10 animate-spin mb-4 text-brand" />
         <p className="text-sm font-medium animate-pulse">
           Checking permissions...
         </p>

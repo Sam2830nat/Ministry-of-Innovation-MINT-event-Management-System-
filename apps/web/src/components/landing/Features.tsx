@@ -71,7 +71,7 @@ export default function Features() {
       {/* ── Background Decorations ── */}
       <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#0ea5e9_1px,transparent_1px)] bg-size-[50px_50px]" />
       <div className="absolute top-1/4 -right-20 w-96 h-96 bg-brand/5 rounded-full blur-3xl opacity-60 z-0" />
-      <div className="absolute bottom-1/4 -left-20 w-80 h-80 bg-blue-100/10 rounded-full blur-3xl opacity-40 z-0" />
+      <div className="absolute bottom-1/4 -left-20 w-80 h-80 bg-brand/10 rounded-full blur-3xl opacity-40 z-0" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
