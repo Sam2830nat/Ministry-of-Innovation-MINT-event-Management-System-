@@ -47,6 +47,7 @@
   --color-brand-hover: var(--color-brand-hover);
   --color-brand-subtle: var(--color-brand-subtle);
   --color-brand-muted: var(--color-brand-muted);
+  --color-brand-accent: var(--color-brand-accent);
 
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -62,15 +63,12 @@
   --font-brand: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-geist-mono: monospace;
 
-  /* Brand colour: light blue — the one true primary */
-  --color-brand: oklch(0.68 0.155 231);
-  /* ~sky-400 / light blue */
-  --color-brand-hover: oklch(0.6 0.155 231);
-  /* slightly darker on hover */
-  --color-brand-subtle: oklch(0.95 0.04 231);
-  /* 1/20 tint for bg fills */
-  --color-brand-muted: oklch(0.88 0.06 231);
-  /* softer accent ring */
+  /* Brand colour: MInT Logo Deep Teal */
+  --color-brand: #085464;
+  --color-brand-hover: #06404c;
+  --color-brand-subtle: #e6f0f2;
+  --color-brand-muted: #c1d9df;
+  --color-brand-accent: #f38220; /* The orange from the logo */
 
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
