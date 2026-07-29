@@ -1,7 +1,7 @@
 # ─── Stage 1: Development / Build ────────────────────────────────────────────
 FROM node:20-alpine AS builder
 
-ENV NODE_OPTIONS="--max-old-space-size=512"
+ENV NODE_OPTIONS="--max-old-space-size=2048"
 
 WORKDIR /usr/src/app
 
@@ -24,7 +24,7 @@ RUN npm prune --production
 FROM node:20-alpine AS development
 
 ENV NODE_ENV=development
-ENV NODE_OPTIONS="--max-old-space-size=512"
+ENV NODE_OPTIONS="--max-old-space-size=2048"
 
 WORKDIR /usr/src/app
 
