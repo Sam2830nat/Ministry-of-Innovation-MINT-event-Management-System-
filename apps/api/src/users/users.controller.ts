@@ -17,6 +17,7 @@ import {
   UpdateMyProfileDto,
   UpdateUserCategoryPreferencesDto,
   UpdateUserInterestsDto,
+  InviteUserDto,
 } from './dto';
 
 import { Roles } from 'src/auth/decorator';
@@ -35,6 +36,12 @@ export class UsersController {
   @Roles('Admin', 'Organizer')
   findAll() {
     return this.usersService.findAll();
+  }
+
+  @Post('invite')
+  @Roles('Admin')
+  inviteUser(@Body() dto: InviteUserDto) {
+    return this.usersService.inviteUser(dto);
   }
 
   @Get('me')

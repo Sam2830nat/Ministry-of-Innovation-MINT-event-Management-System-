@@ -1,16 +1,25 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import {
   UpdateMyProfileDto,
   UpdateUserCategoryPreferencesDto,
   UpdateUserInterestsDto,
+  InviteUserDto
 } from './dto';
+import * as crypto from 'crypto';
+import * as argon from 'argon2';
+import { EmailService } from 'src/auth/email.service';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class UsersService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly emailService: EmailService,
+    private readonly config: ConfigService
+  ) {}
 
   async findAll() {
     return this.prisma.user.findMany({
@@ -209,6 +218,58 @@ export class UsersService {
       return this.getMyCategoryPreferences(userId);
     } catch (err) {
       console.error('UserService.updateMyCategoryPreferences error:', err);
+      throw err;
+    }
+  }
+
+  async inviteUser(dto: InviteUserDto) {
+    try {
+      const existing = await this.prisma.user.findUnique({
+        where: { email: dto.email.toLowerCase() },
+      });
+      if (existing) {
+        throw new ConflictException('User with this email already exists');
+      }
+
+      const role = await this.prisma.role.findUnique({
+        where: { id: dto.roleId },
+      });
+      if (!role) {
+        throw new NotFoundException('Role not found');
+      }
+
+      // Create the user
+      const user = await this.prisma.user.create({
+        data: {
+          email: dto.email.toLowerCase(),
+          fullName: dto.fullName,
+          roleId: dto.roleId,
+          // no passwordHash so they have to reset it
+        },
+      });
+
+      // Generate password reset token
+      const rawToken = crypto.randomBytes(32).toString('hex');
+      const hash = await argon.hash(rawToken);
+
+      await this.prisma.oneTimeToken.create({
+        data: {
+          userId: user.id,
+          tokenHash: hash,
+          type: 'PASSWORD_RESET',
+          expiresAt: new Date(Date.now() + 60 * 60 * 1000), // 1 hour
+        },
+      });
+
+      // Send invitation email
+      await this.emailService.sendSystemInvitationEmail(user.email, role.roleName, rawToken);
+
+      return {
+        message: 'User invited successfully',
+        userId: user.id,
+      };
+    } catch (err) {
+      console.error('UserService.inviteUser error:', err);
       throw err;
     }
   }

@@ -10,12 +10,14 @@ import { UserRecord } from '@/features/users/types';
 import { UserPreviewPanel } from '@/features/users/components/UserPreviewPanel';
 import { useRoles } from '@/features/permissions/api/getRoles';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { InviteUserDialog } from '@/features/users/components/InviteUserDialog';
 
 export default function UsersPage() {
     const [page, setPage] = useState(1);
     const [limit, setLimit] = useState(10);
     const [search, setSearch] = useState("");
     const [roleId, setRoleId] = useState<string>("");
+    const [isInviteDialogOpen, setIsInviteDialogOpen] = useState(false);
 
     const { data: roles } = useRoles();
 
@@ -55,7 +57,11 @@ export default function UsersPage() {
                         </p>
                     </div>
                 </div>
-                <CemsButton cemsVariant="brand" className="rounded-lg shadow-lg shadow-brand/20 h-12 px-6 font-black uppercase tracking-widest text-[11px]">
+                <CemsButton 
+                    cemsVariant="brand" 
+                    className="rounded-lg shadow-lg shadow-brand/20 h-12 px-6 font-black uppercase tracking-widest text-[11px]"
+                    onClick={() => setIsInviteDialogOpen(true)}
+                >
                     <Plus className="w-4 h-4 mr-2" />
                     Invite User
                 </CemsButton>
@@ -109,6 +115,11 @@ export default function UsersPage() {
                     onClose={() => setPreviewUser(null)} 
                 />
             )}
+
+            <InviteUserDialog 
+                open={isInviteDialogOpen} 
+                onOpenChange={setIsInviteDialogOpen} 
+            />
         </div>
     );
 }

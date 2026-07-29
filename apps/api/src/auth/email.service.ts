@@ -250,6 +250,27 @@ export class EmailService {
     await this.sendMail(email, `[RESPONSE] Organizer Invitation: ${eventTitle}`, html);
   }
 
+  async sendSystemInvitationEmail(email: string, roleName: string, token: string) {
+    const frontendBaseUrl = this.configService.get<string>('FRONTEND_URL');
+    const backendBaseUrl =
+      this.configService.get<string>('BACKEND_URL') ??
+      `http://localhost:${this.configService.get<number>('PORT') ?? 3000}`;
+
+    const resetUrl = frontendBaseUrl
+      ? `${frontendBaseUrl}/auth/reset-password?token=${encodeURIComponent(token)}`
+      : `${backendBaseUrl}/api/auth/reset-password?token=${encodeURIComponent(token)}`;
+
+    const html = this.getHtmlLayout(
+      'You are invited!',
+      `Invitation to join MInT EMS as a ${roleName}`,
+      `<p>You have been invited to join the MInT Event Management System as a <strong>${roleName}</strong>.</p>
+       <p>Please click the button below to set up your password and access your account. This link will expire in 15 minutes.</p>`,
+      { text: 'Set Up Account', url: resetUrl },
+    );
+
+    await this.sendMail(email, `You have been invited to join MInT EMS`, html);
+  }
+
   async sendGraduationClaimEmail(
     email: string,
     guestName: string,
