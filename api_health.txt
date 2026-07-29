@@ -1,0 +1,1 @@
+{"statusCode":200,"timestamp":"2026-07-29T13:40:28.826Z","data":{"status":"ok","info":{"database":{"status":"up"}},"error":{},"details":{"database":{"status":"up"}}}}
