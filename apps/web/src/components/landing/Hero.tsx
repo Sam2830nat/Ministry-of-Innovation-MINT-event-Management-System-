@@ -43,7 +43,7 @@ export default function Hero() {
     <section className="relative bg-linear-to-b from-brand-subtle/50 dark:from-brand/10 via-white dark:via-black to-white dark:to-black pt-32 pb-24 px-6 md:px-10 text-center overflow-hidden">
 
       {/* ── Background: Radial Dot Grid ── */}
-      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#0ea5e9_1px,transparent_1px)] bg-size-[50px_50px]" />
+      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#085464_1px,transparent_1px)] bg-size-[50px_50px]" />
 
       {/* ── Background: Moving Blobs ── */}
       {/* <motion.div

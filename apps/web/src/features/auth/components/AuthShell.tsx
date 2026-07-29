@@ -65,7 +65,7 @@ export default function AuthShell({
         </div>
 
         {/* Subtle dot grid */}
-        <div className="absolute inset-0 opacity-[0.015] pointer-events-none bg-[radial-gradient(#0ea5e9_1px,transparent_1px)] bg-size-[40px_40px]" />
+        <div className="absolute inset-0 opacity-[0.015] pointer-events-none bg-[radial-gradient(#085464_1px,transparent_1px)] bg-size-[40px_40px]" />
         
         {/* Mobile logo */}
         <div className="lg:hidden mb-10 relative z-10">

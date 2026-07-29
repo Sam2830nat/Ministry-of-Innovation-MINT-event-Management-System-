@@ -43,11 +43,12 @@
   --color-card: var(--card);
 
   /* Brand utilities for Tailwind v4 */
-  --color-brand: var(--color-brand);
-  --color-brand-hover: var(--color-brand-hover);
-  --color-brand-subtle: var(--color-brand-subtle);
-  --color-brand-muted: var(--color-brand-muted);
-  --color-brand-accent: var(--color-brand-accent);
+  /* Brand utilities for Tailwind v4 */
+  --color-brand: #085464;
+  --color-brand-hover: #06404c;
+  --color-brand-subtle: #e6f0f2;
+  --color-brand-muted: #c1d9df;
+  --color-brand-accent: #f38220;
 
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -139,6 +140,7 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --primary: #085464;
 }
 
 @layer base {
