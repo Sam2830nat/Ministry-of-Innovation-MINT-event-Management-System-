@@ -1,11 +1,13 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { resolve } from 'path';
 import * as Joi from 'joi';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
+      envFilePath: [resolve(process.cwd(), '.env'), resolve(process.cwd(), '../../.env')],
       validationSchema: Joi.object({
         DATABASE_URL: Joi.string().required(),
         REDIS_HOST: Joi.string().default('localhost'),
@@ -19,4 +21,4 @@ import * as Joi from 'joi';
     }),
   ],
 })
-export class AppConfigModule {}
+export class AppConfigModule { }

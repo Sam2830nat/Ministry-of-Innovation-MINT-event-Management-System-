@@ -68,7 +68,7 @@ All services are orchestrated via **Docker Compose** and sit behind an **Nginx**
 | No graduation guest-pass workflow | Manual, error-prone distribution |
 
 ---
-
+samri
 ## System Architecture
 
 CEMS follows a **Modular Monolith** architecture using NestJS — providing clean module boundaries (close to microservices) with the operational simplicity of a monolith. The ML service runs as a separate Python process.

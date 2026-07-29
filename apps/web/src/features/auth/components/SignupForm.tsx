@@ -10,7 +10,7 @@ import {
   ArrowRight,
   Lock,
   Mail,
-  User, 
+  User,
   Phone,
   Check,
 } from "lucide-react";
@@ -90,7 +90,7 @@ export function SignupForm() {
     }
     setIsLoading(true);
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost";
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
       const res = await fetch(`${apiUrl}/api/auth/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -105,7 +105,7 @@ export function SignupForm() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Failed to create account");
-      
+
       toast.success("Registration Successful!", {
         description: "Please check your email to verify your account and complete your ministry ID registration.",
       });
@@ -156,8 +156,8 @@ export function SignupForm() {
                 type="button"
                 onClick={() => setForm((p) => ({ ...p, role: r.value }))}
                 className={`p-3.5 rounded-lg border text-left transition-all ${form.role === r.value
-                    ? "border-brand bg-brand/5 shadow-sm shadow-brand/10"
-                    : "border-gray-100 bg-gray-50/50 dark:border-gray-800 dark:bg-gray-900/40 hover:border-gray-200"
+                  ? "border-brand bg-brand/5 shadow-sm shadow-brand/10"
+                  : "border-gray-100 bg-gray-50/50 dark:border-gray-800 dark:bg-gray-900/40 hover:border-gray-200"
                   }`}
               >
                 <div
@@ -241,7 +241,7 @@ export function SignupForm() {
             />
           </div>
         </div>
-        
+
         {/* Department Selection (Only for Guests) */}
         {form.role === "Guest" && (
           <CemsSelect
@@ -282,20 +282,20 @@ export function SignupForm() {
               {showPassword ? <EyeOff size={15} /> : <Eye size={15} />}
             </button>
           </div>
-          
+
           {password && (
             <div className="space-y-2 mt-2 animate-in fade-in duration-300">
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-brand font-black uppercase tracking-wider text-brand">
                   Password Strength: {
                     score <= 2 ? "Weak" :
-                    score === 3 ? "Fair" :
-                    score === 4 ? "Good" :
-                    "Strong"
+                      score === 3 ? "Fair" :
+                        score === 4 ? "Good" :
+                          "Strong"
                   }
                 </span>
               </div>
-              
+
               <div className="grid grid-cols-4 gap-1.5 h-1">
                 {[1, 2, 3, 4].map((index) => {
                   let isFilled = false;
@@ -307,11 +307,10 @@ export function SignupForm() {
                   return (
                     <div
                       key={index}
-                      className={`h-full rounded-full transition-all duration-300 ${
-                        isFilled
+                      className={`h-full rounded-full transition-all duration-300 ${isFilled
                           ? "bg-brand shadow-xs shadow-brand/20"
                           : "bg-brand/10 dark:bg-gray-800"
-                      }`}
+                        }`}
                     />
                   );
                 })}
@@ -324,11 +323,10 @@ export function SignupForm() {
                     className="flex items-center gap-1.5 transition-colors duration-200"
                   >
                     <div
-                      className={`w-3.5 h-3.5 rounded-full flex items-center justify-center border transition-all ${
-                        c.met
+                      className={`w-3.5 h-3.5 rounded-full flex items-center justify-center border transition-all ${c.met
                           ? "border-brand bg-brand/5 text-brand"
                           : "border-gray-200 dark:border-gray-800 text-gray-300"
-                      }`}
+                        }`}
                     >
                       {c.met ? (
                         <Check size={9} className="stroke-3" />
@@ -337,9 +335,8 @@ export function SignupForm() {
                       )}
                     </div>
                     <span
-                      className={`text-[10px] font-medium transition-colors duration-200 ${
-                        c.met ? "text-gray-900 dark:text-white" : "text-gray-400 dark:text-gray-500"
-                      }`}
+                      className={`text-[10px] font-medium transition-colors duration-200 ${c.met ? "text-gray-900 dark:text-white" : "text-gray-400 dark:text-gray-500"
+                        }`}
                     >
                       {c.label}
                     </span>
@@ -424,7 +421,7 @@ export function SignupForm() {
         </p>
       </div>
 
-        <div className="h-6" />
+      <div className="h-6" />
     </motion.div>
   );
 }

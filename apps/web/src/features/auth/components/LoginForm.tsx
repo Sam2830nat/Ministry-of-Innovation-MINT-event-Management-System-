@@ -22,7 +22,7 @@ export function LoginForm() {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
 
       const res = await fetch(`${apiUrl}/api/auth/login`, {
         method: "POST",
@@ -77,11 +77,11 @@ export function LoginForm() {
       } else {
         // Guests should go to discovery unless the redirectTo is a protected guest route
         const isGuestRoute = redirectTo && (
-          redirectTo.startsWith('/discovery') || 
-          redirectTo.startsWith('/my-events') || 
+          redirectTo.startsWith('/discovery') ||
+          redirectTo.startsWith('/my-events') ||
           redirectTo.startsWith('/profile')
         );
-        
+
         if (redirectTo && isGuestRoute) {
           router.push(redirectTo);
         } else {

@@ -20,7 +20,25 @@ RUN ls -R dist
 # Prune devDependencies (leaves only production packages in node_modules)
 RUN npm prune --production
 
-# ─── Stage 2: Production ──────────────────────────────────────────────────────
+# ─── Stage 2: Development ─────────────────────────────────────────────────────
+FROM node:20-alpine AS development
+
+ENV NODE_ENV=development
+ENV NODE_OPTIONS="--max-old-space-size=512"
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+RUN --mount=type=cache,target=/root/.npm npm install --prefer-offline
+
+COPY . .
+RUN npx prisma generate
+
+EXPOSE 4000
+
+CMD ["npm", "run", "start:dev"]
+
+# ─── Stage 3: Production ──────────────────────────────────────────────────────
 FROM node:20-alpine AS production
 
 ARG NODE_ENV=production
