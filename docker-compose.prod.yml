@@ -45,8 +45,6 @@ services:
       target: production
     container_name: mint-api
     restart: unless-stopped
-    ports:
-      - "4000:4000"
     environment:
       DATABASE_URL: ${DATABASE_URL}
       REDIS_HOST: redis
@@ -132,8 +130,6 @@ services:
         NODE_MEMORY_MB: ${WEB_NODE_MEMORY_MB:-4096}
     container_name: mint-web
     restart: unless-stopped
-    ports:
-      - "3001:3001"
     environment:
       NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
       NEXT_PUBLIC_SOCKET_URL: ${NEXT_PUBLIC_SOCKET_URL}
