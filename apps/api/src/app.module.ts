@@ -23,7 +23,6 @@ import { SupportModule } from './support/support.module';
 import { FeedbackModule } from './feedback/feedback.module';
 import { BookmarksModule } from './bookmarks/bookmarks.module';
 import { GraduationModule } from './graduation/graduation.module';
-import { TelegramModule } from './telegram/telegram.module';
 
 import { APP_GUARD } from '@nestjs/core';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
@@ -68,7 +67,6 @@ import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
     FeedbackModule,
     BookmarksModule,
     GraduationModule,
-    TelegramModule,
   ],
   providers: [
     {
