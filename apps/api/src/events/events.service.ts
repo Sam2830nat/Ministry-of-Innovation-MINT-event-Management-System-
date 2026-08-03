@@ -25,7 +25,6 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { AuditLogsService } from '../audit-logs/audit-logs.service';
 import { FeedbackService } from '../feedback/feedback.service';
-import { TelegramService } from '../telegram/telegram.service';
 
 // Allowed status transitions
 const STATUS_TRANSITIONS: Record<string, string[]> = {
@@ -53,7 +52,6 @@ export class EventsService {
     private readonly configService: ConfigService,
     private readonly auditLogsService: AuditLogsService,
     private readonly feedbackService: FeedbackService,
-    private readonly telegramService: TelegramService,
   ) {}
 
   private async getStatusByName(name: string) {
@@ -313,11 +311,6 @@ export class EventsService {
       this.logger.error(`Failed to create audit log: ${e.message}`);
     }
 
-    // Post announcement to Telegram channel (fire-and-forget)
-    this.telegramService.sendEventAnnouncement(updated).catch((err) =>
-      this.logger.error(`Telegram announce failed for "${event.title}": ${err.message}`),
-    );
-
     return updated;
   }
 
@@ -423,57 +416,60 @@ export class EventsService {
       await this.emailService.sendEventLiveEmail(attendeeEmails, event.title);
     }
 
-    // Post live alert to Telegram channel (fire-and-forget)
-    this.telegramService.sendEventLiveAlert(updated).catch((err) =>
-      this.logger.error(`Telegram live alert failed for "${event.title}": ${err.message}`),
-    );
-
     return updated;
   }
 
   @Cron(CronExpression.EVERY_MINUTE)
   async handleCronGoLive() {
-    const now = new Date();
-    const approvedEvents = await this.prisma.event.findMany({
-      where: {
-        status: { statusName: 'APPROVED' },
-        startTime: { lte: now },
-      },
-    });
+    try {
+      const now = new Date();
+      const approvedEvents = await this.prisma.event.findMany({
+        where: {
+          status: { statusName: 'APPROVED' },
+          startTime: { lte: now },
+        },
+      });
 
-    if (approvedEvents.length === 0) return;
+      if (approvedEvents.length === 0) return;
 
-    this.logger.log(`Cron: Setting ${approvedEvents.length} approved events to LIVE`);
+      this.logger.log(`Cron: Setting ${approvedEvents.length} approved events to LIVE`);
 
-    for (const event of approvedEvents) {
-      try {
-        await this.goLive(event.id);
-      } catch (error) {
-        this.logger.error(`Failed to set event ${event.id} to LIVE: ${error.message}`);
+      for (const event of approvedEvents) {
+        try {
+          await this.goLive(event.id);
+        } catch (error: any) {
+          this.logger.error(`Failed to set event ${event.id} to LIVE: ${error.message}`);
+        }
       }
+    } catch (error: any) {
+      this.logger.error(`Cron GoLive failed: ${error.message}`);
     }
   }
 
   @Cron(CronExpression.EVERY_MINUTE)
   async handleCronArchive() {
-    const now = new Date();
-    const liveEndedEvents = await this.prisma.event.findMany({
-      where: {
-        status: { statusName: 'LIVE' },
-        endTime: { lte: now },
-      },
-    });
+    try {
+      const now = new Date();
+      const liveEndedEvents = await this.prisma.event.findMany({
+        where: {
+          status: { statusName: 'LIVE' },
+          endTime: { lte: now },
+        },
+      });
 
-    if (liveEndedEvents.length === 0) return;
+      if (liveEndedEvents.length === 0) return;
 
-    this.logger.log(`Cron: Auto-archiving ${liveEndedEvents.length} ended events`);
+      this.logger.log(`Cron: Auto-archiving ${liveEndedEvents.length} ended events`);
 
-    for (const event of liveEndedEvents) {
-      try {
-        await this.archive(event.id);
-      } catch (error) {
-        this.logger.error(`Failed to auto-archive event ${event.id}: ${error.message}`);
+      for (const event of liveEndedEvents) {
+        try {
+          await this.archive(event.id);
+        } catch (error: any) {
+          this.logger.error(`Failed to auto-archive event ${event.id}: ${error.message}`);
+        }
       }
+    } catch (error: any) {
+      this.logger.error(`Cron Archive failed: ${error.message}`);
     }
   }
 

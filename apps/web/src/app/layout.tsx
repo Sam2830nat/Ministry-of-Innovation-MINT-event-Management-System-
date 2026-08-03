@@ -36,7 +36,6 @@ export const viewport: Viewport = {
 
 import { SupportFAB } from "@/features/support/components/SupportFAB";
 import { PWAInstallPrompt } from "@/components/shared/PWAInstallPrompt";
-import Script from "next/script";
 
 export default function RootLayout({
   children,
@@ -49,12 +48,6 @@ export default function RootLayout({
       className="antialiased font-sans"
       suppressHydrationWarning
     >
-      <head>
-        <Script
-          src="https://telegram.org/js/telegram-web-app.js"
-          strategy="beforeInteractive"
-        />
-      </head>
       <body className="flex flex-col min-h-screen">
         <Toaster
           position="top-right"
