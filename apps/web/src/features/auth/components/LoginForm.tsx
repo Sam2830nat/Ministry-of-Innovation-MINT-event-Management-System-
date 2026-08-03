@@ -22,7 +22,8 @@ export function LoginForm() {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+      const rawApiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+      const apiUrl = rawApiUrl.endsWith("/api") ? rawApiUrl.slice(0, -4) : rawApiUrl;
 
       const res = await fetch(`${apiUrl}/api/auth/login`, {
         method: "POST",
