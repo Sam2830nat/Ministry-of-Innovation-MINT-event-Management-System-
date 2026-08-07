@@ -1,0 +1,1 @@
+{"statusCode":503,"timestamp":"2026-08-03T22:49:48.212Z","path":"/api/health","message":{"status":"error","info":{},"error":{"database":{"status":"down"}},"details":{"database":{"status":"down"}}},"error":{"database":{"status":"down"}}}
