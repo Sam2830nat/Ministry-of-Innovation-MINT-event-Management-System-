@@ -162,12 +162,12 @@ export function CemsSidebar() {
       className="border-none bg-transparent"
       style={{ "--sidebar-background": "transparent", "--sidebar-border": "transparent" } as React.CSSProperties}
     >
-      <div className="flex flex-col h-full min-h-0 bg-gray-950 text-gray-400 border-r border-gray-900 shadow-2xl shadow-black/20 overflow-hidden relative z-20">
+      <div className="flex flex-col h-full min-h-0 bg-gray-950 dark:bg-white text-gray-400 dark:text-gray-500 border-r border-gray-900 dark:border-gray-200 shadow-2xl shadow-black/20 dark:shadow-gray-200/50 overflow-hidden relative z-20">
         
         {/* ── Sidebar Header ── */}
         <SidebarHeader className="p-0 shrink-0">
           <div className={cn(
-            "flex items-center justify-between h-20 px-6 border-b border-gray-900",
+            "flex items-center justify-between h-20 px-6 border-b border-gray-900 dark:border-gray-100",
             isCollapsed && "px-4 justify-center"
           )}>
             {!isCollapsed && <Logo />}
@@ -176,7 +176,7 @@ export function CemsSidebar() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="hidden md:flex text-gray-500 hover:text-white hover:bg-gray-800 rounded-lg transition-all"
+                className="hidden md:flex text-gray-500 hover:text-white dark:hover:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 rounded-lg transition-all"
                 onClick={toggleSidebar}
               >
                 {isCollapsed ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
@@ -185,7 +185,7 @@ export function CemsSidebar() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="md:hidden text-gray-500 hover:text-white rounded-lg"
+                className="md:hidden text-gray-500 hover:text-white dark:hover:text-gray-900 rounded-lg"
                 onClick={() => setOpenMobile(false)}
               >
                 <X className="w-5 h-5" />
@@ -209,7 +209,7 @@ export function CemsSidebar() {
                 return (
                   <div key={group.label} className="space-y-1">
                     {!isCollapsed && (
-                      <p className="px-3 mb-2 text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] pl-4">
+                      <p className="px-3 mb-2 text-[10px] font-black text-gray-500 dark:text-gray-400 uppercase tracking-[0.2em] pl-4">
                         {group.label}
                       </p>
                     )}
@@ -233,19 +233,19 @@ export function CemsSidebar() {
                                   isCollapsed ? "px-0 justify-center h-10 w-10 mx-auto" : "px-4",
                                   isSubActive 
                                     ? "text-brand bg-brand/10"
-                                    : "text-gray-400 hover:bg-gray-900 hover:text-brand",
+                                    : "text-gray-400 dark:text-gray-500 hover:bg-gray-900 dark:hover:bg-gray-50 hover:text-brand dark:hover:text-brand",
                                 )}
                               >
                                 <Icon className={cn(
                                   "w-5 h-5 transition-colors shrink-0",
-                                  isSubActive ? "text-brand" : "text-gray-500 group-hover:text-brand"
+                                  isSubActive ? "text-brand" : "text-gray-500 dark:text-gray-400 group-hover:text-brand"
                                 )} />
                                 {!isCollapsed && <span>{item.title}</span>}
                                 {!isCollapsed && <ChevronRight className="ml-auto w-4 h-4 transition-transform duration-300 group-data-[state=open]:rotate-90" />}
                               </CollapsibleTrigger>
                               {!isCollapsed && (
                                 <CollapsibleContent>
-                                  <div className="border-l border-gray-800 ml-6 pl-2 mt-2 space-y-1">
+                                  <div className="border-l border-gray-800 dark:border-gray-200 ml-6 pl-2 mt-2 space-y-1">
                                     {item.subItems.map((sub: any) => {
                                       const subActive = pathname === sub.to
                                       return (
@@ -257,7 +257,7 @@ export function CemsSidebar() {
                                             "flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-300 text-xs font-bold tracking-tight",
                                             subActive 
                                               ? "bg-brand text-white shadow-lg shadow-brand/20"
-                                              : "text-gray-400 hover:bg-gray-900 hover:text-brand"
+                                              : "text-gray-400 dark:text-gray-500 hover:bg-gray-900 dark:hover:bg-gray-50 hover:text-brand dark:hover:text-brand"
                                           )}
                                         >
                                           <span>{sub.title}</span>
@@ -285,13 +285,13 @@ export function CemsSidebar() {
                             isCollapsed ? "px-0 justify-center h-10 w-10 mx-auto" : "px-4",
                             isActive
                               ? "bg-brand text-white shadow-lg shadow-brand/20"
-                              : "text-gray-400 hover:bg-gray-900 hover:text-brand",
+                              : "text-gray-400 dark:text-gray-500 hover:bg-gray-900 dark:hover:bg-gray-50 hover:text-brand dark:hover:text-brand",
                           )}
                         >
                           <Icon
                             className={cn(
                               "w-5 h-5 transition-colors shrink-0",
-                              isActive ? "text-white" : "text-gray-500 group-hover:text-brand",
+                              isActive ? "text-white" : "text-gray-500 dark:text-gray-400 group-hover:text-brand",
                             )}
                           />
                           {!isCollapsed && <span>{item.title}</span>}
@@ -308,11 +308,11 @@ export function CemsSidebar() {
         {/* ── Sidebar Footer ── */}
         <SidebarFooter className="p-0 shrink-0">
           <div className={cn(
-            "p-4 border-t border-gray-900 bg-gray-950",
+            "p-4 border-t border-gray-900 dark:border-gray-200 bg-gray-950 dark:bg-white",
             isCollapsed && "p-2"
           )}>
             <div className={cn(
-              "group relative flex items-center gap-3 p-3 rounded-lg bg-gray-900/50 border border-gray-800 hover:bg-gray-900 hover:border-brand/30 hover:shadow-xl hover:shadow-brand/5 transition-all duration-500",
+              "group relative flex items-center gap-3 p-3 rounded-lg bg-gray-900/50 dark:bg-gray-50 border border-gray-800 dark:border-gray-200 hover:bg-gray-900 dark:hover:bg-gray-100 hover:border-brand/30 dark:hover:border-brand/30 hover:shadow-xl hover:shadow-brand/5 transition-all duration-500",
               isCollapsed && "p-0 h-12 w-12 mx-auto justify-center"
             )}>
               <div className="w-10 h-10 rounded-lg bg-brand/5 flex items-center justify-center border border-brand/10 shadow-sm group-hover:bg-brand/10 transition-colors shrink-0 overflow-hidden relative">
@@ -326,17 +326,17 @@ export function CemsSidebar() {
               {!isCollapsed && (
                 <>
                   <div className="flex-1 min-w-0 mr-1">
-                    <p className="text-[11px] font-black text-white leading-tight truncate">
+                    <p className="text-[11px] font-black text-white dark:text-gray-900 leading-tight truncate">
                       {profile?.full_name || "Staff Member"}
                     </p>
-                    <p className="text-[9px] font-bold text-gray-500 uppercase tracking-widest mt-0.5 truncate">
+                    <p className="text-[9px] font-bold text-gray-500 dark:text-gray-500 uppercase tracking-widest mt-0.5 truncate">
                       {profile?.email || "staff@mint.gov.et"}
                     </p>
                   </div>
 
                   <button
                     onClick={handleLogout}
-                    className="p-2 text-gray-500 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-all active:scale-90"
+                    className="p-2 text-gray-500 hover:text-red-400 hover:bg-red-500/10 dark:hover:bg-red-50 rounded-lg transition-all active:scale-90"
                     title="Sign Out"
                   >
                     <LogOut className="w-4 h-4" />
