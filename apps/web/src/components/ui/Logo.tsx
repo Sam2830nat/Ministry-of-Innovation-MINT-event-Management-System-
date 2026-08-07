@@ -34,6 +34,7 @@ export default function Logo({ className, size = "md", href = "/", hideText = fa
           width={size === "sm" ? 80 : size === "lg" ? 140 : 110}
           height={size === "sm" ? 30 : size === "lg" ? 50 : 40}
           className="object-contain"
+          style={{ width: "auto", height: "auto" }}
           priority
         />
       </div>

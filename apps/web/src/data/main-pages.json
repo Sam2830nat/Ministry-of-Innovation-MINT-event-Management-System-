@@ -65,7 +65,7 @@
     "parent": "/dashboard/feedback/my-events",
     "to": "/dashboard/feedback/my-events",
     "section": "Management",
-    "allowed": ["ORGANIZER"],
+    "allowed": ["ADMIN", "ORGANIZER"],
     "hasBadge": false,
     "children": []
   },
@@ -75,7 +75,7 @@
     "parent": "/dashboard/feedback/templates",
     "to": "/dashboard/feedback/templates",
     "section": "Management",
-    "allowed": ["ORGANIZER"],
+    "allowed": ["ADMIN", "ORGANIZER"],
     "hasBadge": false,
     "children": []
   },

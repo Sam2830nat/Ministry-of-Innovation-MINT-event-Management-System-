@@ -232,13 +232,13 @@ export function CemsSidebar() {
                                   "group flex items-center gap-3 w-full px-4 py-2.5 rounded-lg transition-all duration-300 text-sm font-bold tracking-tight",
                                   isCollapsed ? "px-0 justify-center h-10 w-10 mx-auto" : "px-4",
                                   isSubActive 
-                                    ? "text-brand dark:text-white"
-                                    : "text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-brand dark:hover:text-white",
+                                    ? "text-[#D88B45] dark:text-white"
+                                    : "text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-[#D88B45] dark:hover:text-white",
                                 )}
                               >
                                 <Icon className={cn(
                                   "w-5 h-5 transition-colors shrink-0",
-                                  isSubActive ? "text-brand dark:text-white" : "text-gray-400 group-hover:text-brand"
+                                  isSubActive ? "text-[#D88B45] dark:text-white" : "text-gray-400 group-hover:text-[#D88B45]"
                                 )} />
                                 {!isCollapsed && <span>{item.title}</span>}
                                 {!isCollapsed && <ChevronRight className="ml-auto w-4 h-4 transition-transform duration-300 group-data-[state=open]:rotate-90" />}
@@ -256,8 +256,8 @@ export function CemsSidebar() {
                                           className={cn(
                                             "flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-300 text-xs font-bold tracking-tight",
                                             subActive 
-                                              ? "bg-brand text-white shadow-lg shadow-brand/20"
-                                              : "text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-brand dark:hover:text-white"
+                                              ? "bg-[#D88B45] text-white shadow-lg shadow-[#D88B45]/20"
+                                              : "text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-[#D88B45] dark:hover:text-white"
                                           )}
                                         >
                                           <span>{sub.title}</span>
@@ -284,14 +284,14 @@ export function CemsSidebar() {
                             "group flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all duration-300 text-sm font-bold tracking-tight",
                             isCollapsed ? "px-0 justify-center h-10 w-10 mx-auto" : "px-4",
                             isActive
-                              ? "bg-brand text-white shadow-lg shadow-brand/20"
-                              : "text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-brand dark:hover:text-white",
+                              ? "bg-[#D88B45] text-white shadow-lg shadow-[#D88B45]/20"
+                              : "text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-[#D88B45] dark:hover:text-white",
                           )}
                         >
                           <Icon
                             className={cn(
                               "w-5 h-5 transition-colors shrink-0",
-                              isActive ? "text-white" : "text-gray-400 group-hover:text-brand",
+                              isActive ? "text-white" : "text-gray-400 group-hover:text-[#D88B45]",
                             )}
                           />
                           {!isCollapsed && <span>{item.title}</span>}
