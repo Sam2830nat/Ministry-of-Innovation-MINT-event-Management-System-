@@ -162,12 +162,12 @@ export function CemsSidebar() {
       className="border-none bg-transparent"
       style={{ "--sidebar-background": "transparent", "--sidebar-border": "transparent" } as React.CSSProperties}
     >
-      <div className="flex flex-col h-full min-h-0 bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400 border-r border-gray-100 dark:border-gray-800 overflow-hidden">
+      <div className="flex flex-col h-full min-h-0 bg-[#fdf8f4] dark:bg-[#120f0d] text-gray-600 dark:text-gray-400 border-r border-[#D88B45]/20 dark:border-[#D88B45]/20 overflow-hidden">
         
         {/* ── Sidebar Header ── */}
         <SidebarHeader className="p-0 shrink-0">
           <div className={cn(
-            "flex items-center justify-between h-20 px-6 border-b border-gray-100 dark:border-gray-800",
+            "flex items-center justify-between h-20 px-6 border-b border-[#D88B45]/20 dark:border-[#D88B45]/20",
             isCollapsed && "px-4 justify-center"
           )}>
             {!isCollapsed && <Logo />}
@@ -232,13 +232,13 @@ export function CemsSidebar() {
                                   "group flex items-center gap-3 w-full px-4 py-2.5 rounded-lg transition-all duration-300 text-sm font-bold tracking-tight",
                                   isCollapsed ? "px-0 justify-center h-10 w-10 mx-auto" : "px-4",
                                   isSubActive 
-                                    ? "text-[#D88B45] dark:text-white"
-                                    : "text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-[#D88B45] dark:hover:text-white",
+                                    ? "text-brand dark:text-white"
+                                    : "text-gray-500 dark:text-gray-400 hover:bg-brand/5 dark:hover:bg-brand/10 hover:text-brand dark:hover:text-white",
                                 )}
                               >
                                 <Icon className={cn(
                                   "w-5 h-5 transition-colors shrink-0",
-                                  isSubActive ? "text-[#D88B45] dark:text-white" : "text-gray-400 group-hover:text-[#D88B45]"
+                                  isSubActive ? "text-brand dark:text-white" : "text-gray-400 group-hover:text-brand"
                                 )} />
                                 {!isCollapsed && <span>{item.title}</span>}
                                 {!isCollapsed && <ChevronRight className="ml-auto w-4 h-4 transition-transform duration-300 group-data-[state=open]:rotate-90" />}
@@ -256,8 +256,8 @@ export function CemsSidebar() {
                                           className={cn(
                                             "flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-300 text-xs font-bold tracking-tight",
                                             subActive 
-                                              ? "bg-[#D88B45] text-white shadow-lg shadow-[#D88B45]/20"
-                                              : "text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-[#D88B45] dark:hover:text-white"
+                                              ? "bg-brand text-white shadow-lg shadow-brand/20"
+                                              : "text-gray-500 dark:text-gray-400 hover:bg-[#D88B45]/5 dark:hover:bg-[#D88B45]/10 hover:text-brand dark:hover:text-white"
                                           )}
                                         >
                                           <span>{sub.title}</span>
@@ -284,14 +284,14 @@ export function CemsSidebar() {
                             "group flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all duration-300 text-sm font-bold tracking-tight",
                             isCollapsed ? "px-0 justify-center h-10 w-10 mx-auto" : "px-4",
                             isActive
-                              ? "bg-[#D88B45] text-white shadow-lg shadow-[#D88B45]/20"
-                              : "text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-[#D88B45] dark:hover:text-white",
+                              ? "bg-brand text-white shadow-lg shadow-brand/20"
+                              : "text-gray-500 dark:text-gray-400 hover:bg-[#D88B45]/5 dark:hover:bg-[#D88B45]/10 hover:text-brand dark:hover:text-white",
                           )}
                         >
                           <Icon
                             className={cn(
                               "w-5 h-5 transition-colors shrink-0",
-                              isActive ? "text-white" : "text-gray-400 group-hover:text-[#D88B45]",
+                              isActive ? "text-white" : "text-gray-400 group-hover:text-brand",
                             )}
                           />
                           {!isCollapsed && <span>{item.title}</span>}
@@ -308,7 +308,7 @@ export function CemsSidebar() {
         {/* ── Sidebar Footer ── */}
         <SidebarFooter className="p-0 shrink-0">
           <div className={cn(
-            "p-4 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900",
+            "p-4 border-t border-[#D88B45]/20 dark:border-[#D88B45]/20 bg-[#fdf8f4] dark:bg-[#120f0d]",
             isCollapsed && "p-2"
           )}>
             <div className={cn(
