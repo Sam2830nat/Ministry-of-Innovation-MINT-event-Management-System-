@@ -57,7 +57,7 @@ const iconMap: Record<string, React.ElementType> = {
 
 export function CemsSidebar() {
   const pathname = usePathname()
-  const { profile, hasAnyRole, clearAuth } = useAuthStore()
+  const { profile, hasRole, hasAnyRole, clearAuth } = useAuthStore()
   const { state, toggleSidebar, setOpenMobile } = useSidebar()
   const isCollapsed = state === "collapsed"
 
@@ -156,18 +156,52 @@ export function CemsSidebar() {
     }
   })
 
+  const getThemeVars = () => {
+    if (hasRole("ADMIN")) return {
+      bg: "bg-slate-50/80 dark:bg-slate-950/80",
+      border: "border-slate-200 dark:border-slate-800",
+      hoverBg: "hover:bg-slate-100 dark:hover:bg-slate-900/80",
+      footerBg: "bg-slate-50 dark:bg-slate-950",
+      footerItemBg: "bg-slate-100/50 dark:bg-slate-900/50",
+    };
+    if (hasRole("ORGANIZER")) return {
+      bg: "bg-orange-50/30 dark:bg-orange-950/30",
+      border: "border-orange-100 dark:border-orange-900/40",
+      hoverBg: "hover:bg-orange-100/50 dark:hover:bg-orange-900/50",
+      footerBg: "bg-orange-50/50 dark:bg-orange-950/50",
+      footerItemBg: "bg-orange-100/30 dark:bg-orange-900/30",
+    };
+    if (hasRole("GUEST")) return {
+      bg: "bg-emerald-50/30 dark:bg-emerald-950/30",
+      border: "border-emerald-100 dark:border-emerald-900/40",
+      hoverBg: "hover:bg-emerald-100/50 dark:hover:bg-emerald-900/50",
+      footerBg: "bg-emerald-50/50 dark:bg-emerald-950/50",
+      footerItemBg: "bg-emerald-100/30 dark:bg-emerald-900/30",
+    };
+    return {
+      bg: "bg-white dark:bg-gray-950",
+      border: "border-gray-200 dark:border-gray-800",
+      hoverBg: "hover:bg-gray-50 dark:hover:bg-gray-900",
+      footerBg: "bg-white dark:bg-gray-950",
+      footerItemBg: "bg-gray-50 dark:bg-gray-900/50",
+    };
+  }
+
+  const themeVars = getThemeVars();
+
   return (
     <Sidebar 
       collapsible="icon" 
       className="border-none bg-transparent"
       style={{ "--sidebar-background": "transparent", "--sidebar-border": "transparent" } as React.CSSProperties}
     >
-      <div className="flex flex-col h-full min-h-0 bg-gray-950 dark:bg-white text-gray-400 dark:text-gray-500 border-r border-gray-900 dark:border-gray-200 shadow-2xl shadow-black/20 dark:shadow-gray-200/50 overflow-hidden relative z-20">
+      <div className={cn("flex flex-col h-full min-h-0 text-gray-600 dark:text-gray-400 border-r shadow-2xl overflow-hidden relative z-20 transition-colors duration-300", themeVars.bg, themeVars.border, "shadow-gray-200/50 dark:shadow-black/20")}>
         
         {/* ── Sidebar Header ── */}
         <SidebarHeader className="p-0 shrink-0">
           <div className={cn(
-            "flex items-center justify-between h-20 px-6 border-b border-gray-900 dark:border-gray-100",
+            "flex items-center justify-between h-20 px-6 border-b transition-colors duration-300",
+            themeVars.border,
             isCollapsed && "px-4 justify-center"
           )}>
             {!isCollapsed && <Logo />}
@@ -176,7 +210,7 @@ export function CemsSidebar() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="hidden md:flex text-gray-500 hover:text-white dark:hover:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 rounded-lg transition-all"
+                className={cn("hidden md:flex text-gray-500 hover:text-gray-900 dark:hover:text-white rounded-lg transition-all", themeVars.hoverBg)}
                 onClick={toggleSidebar}
               >
                 {isCollapsed ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
@@ -185,7 +219,7 @@ export function CemsSidebar() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="md:hidden text-gray-500 hover:text-white dark:hover:text-gray-900 rounded-lg"
+                className="md:hidden text-gray-500 hover:text-gray-900 dark:hover:text-white rounded-lg"
                 onClick={() => setOpenMobile(false)}
               >
                 <X className="w-5 h-5" />
@@ -233,19 +267,20 @@ export function CemsSidebar() {
                                   isCollapsed ? "px-0 justify-center h-10 w-10 mx-auto" : "px-4",
                                   isSubActive 
                                     ? "text-brand bg-brand/10"
-                                    : "text-gray-400 dark:text-gray-500 hover:bg-gray-900 dark:hover:bg-gray-50 hover:text-brand dark:hover:text-brand",
+                                    : "text-gray-500 dark:text-gray-400 hover:text-brand dark:hover:text-brand",
+                                  !isSubActive && themeVars.hoverBg
                                 )}
                               >
                                 <Icon className={cn(
                                   "w-5 h-5 transition-colors shrink-0",
-                                  isSubActive ? "text-brand" : "text-gray-500 dark:text-gray-400 group-hover:text-brand"
+                                  isSubActive ? "text-brand" : "text-gray-400 dark:text-gray-500 group-hover:text-brand"
                                 )} />
                                 {!isCollapsed && <span>{item.title}</span>}
                                 {!isCollapsed && <ChevronRight className="ml-auto w-4 h-4 transition-transform duration-300 group-data-[state=open]:rotate-90" />}
                               </CollapsibleTrigger>
                               {!isCollapsed && (
                                 <CollapsibleContent>
-                                  <div className="border-l border-gray-800 dark:border-gray-200 ml-6 pl-2 mt-2 space-y-1">
+                                  <div className={cn("border-l ml-6 pl-2 mt-2 space-y-1", themeVars.border)}>
                                     {item.subItems.map((sub: any) => {
                                       const subActive = pathname === sub.to
                                       return (
@@ -257,7 +292,8 @@ export function CemsSidebar() {
                                             "flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-300 text-xs font-bold tracking-tight",
                                             subActive 
                                               ? "bg-brand text-white shadow-lg shadow-brand/20"
-                                              : "text-gray-400 dark:text-gray-500 hover:bg-gray-900 dark:hover:bg-gray-50 hover:text-brand dark:hover:text-brand"
+                                              : "text-gray-500 dark:text-gray-400 hover:text-brand dark:hover:text-brand",
+                                            !subActive && themeVars.hoverBg
                                           )}
                                         >
                                           <span>{sub.title}</span>
@@ -285,13 +321,14 @@ export function CemsSidebar() {
                             isCollapsed ? "px-0 justify-center h-10 w-10 mx-auto" : "px-4",
                             isActive
                               ? "bg-brand text-white shadow-lg shadow-brand/20"
-                              : "text-gray-400 dark:text-gray-500 hover:bg-gray-900 dark:hover:bg-gray-50 hover:text-brand dark:hover:text-brand",
+                              : "text-gray-500 dark:text-gray-400 hover:text-brand dark:hover:text-brand",
+                            !isActive && themeVars.hoverBg
                           )}
                         >
                           <Icon
                             className={cn(
                               "w-5 h-5 transition-colors shrink-0",
-                              isActive ? "text-white" : "text-gray-500 dark:text-gray-400 group-hover:text-brand",
+                              isActive ? "text-white" : "text-gray-400 dark:text-gray-500 group-hover:text-brand",
                             )}
                           />
                           {!isCollapsed && <span>{item.title}</span>}
@@ -308,11 +345,15 @@ export function CemsSidebar() {
         {/* ── Sidebar Footer ── */}
         <SidebarFooter className="p-0 shrink-0">
           <div className={cn(
-            "p-4 border-t border-gray-900 dark:border-gray-200 bg-gray-950 dark:bg-white",
+            "p-4 border-t",
+            themeVars.border,
+            themeVars.footerBg,
             isCollapsed && "p-2"
           )}>
             <div className={cn(
-              "group relative flex items-center gap-3 p-3 rounded-lg bg-gray-900/50 dark:bg-gray-50 border border-gray-800 dark:border-gray-200 hover:bg-gray-900 dark:hover:bg-gray-100 hover:border-brand/30 dark:hover:border-brand/30 hover:shadow-xl hover:shadow-brand/5 transition-all duration-500",
+              "group relative flex items-center gap-3 p-3 rounded-lg border hover:border-brand/30 hover:shadow-xl hover:shadow-brand/5 transition-all duration-500",
+              themeVars.footerItemBg,
+              themeVars.border,
               isCollapsed && "p-0 h-12 w-12 mx-auto justify-center"
             )}>
               <div className="w-10 h-10 rounded-lg bg-brand/5 flex items-center justify-center border border-brand/10 shadow-sm group-hover:bg-brand/10 transition-colors shrink-0 overflow-hidden relative">
@@ -326,17 +367,17 @@ export function CemsSidebar() {
               {!isCollapsed && (
                 <>
                   <div className="flex-1 min-w-0 mr-1">
-                    <p className="text-[11px] font-black text-white dark:text-gray-900 leading-tight truncate">
+                    <p className="text-[11px] font-black text-gray-900 dark:text-white leading-tight truncate">
                       {profile?.full_name || "Staff Member"}
                     </p>
-                    <p className="text-[9px] font-bold text-gray-500 dark:text-gray-500 uppercase tracking-widest mt-0.5 truncate">
+                    <p className="text-[9px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mt-0.5 truncate">
                       {profile?.email || "staff@mint.gov.et"}
                     </p>
                   </div>
 
                   <button
                     onClick={handleLogout}
-                    className="p-2 text-gray-500 hover:text-red-400 hover:bg-red-500/10 dark:hover:bg-red-50 rounded-lg transition-all active:scale-90"
+                    className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-all active:scale-90"
                     title="Sign Out"
                   >
                     <LogOut className="w-4 h-4" />
