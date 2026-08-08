@@ -4,14 +4,14 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { 
-  Check, 
-  ChevronRight, 
-  ChevronLeft, 
-  Calendar, 
-  Tag, 
-  Layers, 
-  Settings, 
+import {
+  Check,
+  ChevronRight,
+  ChevronLeft,
+  Calendar,
+  Tag,
+  Layers,
+  Settings,
   Eye,
   Lock,
   Image as ImageIcon
@@ -148,12 +148,12 @@ export function EventCreateWizard() {
   };
 
   const handleCreateEvent = async () => {
-    const toastId = ToastController.loading({ 
-      message: "Initializing Event Protocol", 
-      description: "Writing records to the blockchain of truth..." 
+    const toastId = ToastController.loading({
+      message: "Initializing Event Protocol",
+      description: "Writing records to the blockchain of truth..."
     });
 
-  
+
     const toISO = (localStr: string) => {
       if (!localStr) return localStr;
       return new Date(localStr).toISOString();
@@ -197,19 +197,19 @@ export function EventCreateWizard() {
       };
 
       await createEventMutation.mutateAsync(payload);
-      
+
       ToastController.dismiss(toastId);
-      ToastController.success({ 
-        message: "Event Initialized", 
-        description: "Your masterpiece is now live in the system." 
+      ToastController.success({
+        message: "Event Initialized",
+        description: "Your masterpiece is now live in the system."
       });
-      
+
       router.push("/dashboard/events");
     } catch (err) {
       ToastController.dismiss(toastId);
-      ToastController.error({ 
-        message: "Initialization Failed", 
-        description: err instanceof Error ? err.message : "An unexpected error occurred during event creation." 
+      ToastController.error({
+        message: "Initialization Failed",
+        description: err instanceof Error ? err.message : "An unexpected error occurred during event creation."
       });
       console.error("Event creation error:", err);
     }
@@ -221,8 +221,8 @@ export function EventCreateWizard() {
       <div className="hidden sm:flex items-center justify-between mb-12 relative px-4">
         {/* Connection Line */}
         <div className="absolute top-5 left-8 right-8 h-px bg-gray-100 -z-10" />
-        <div 
-          className="absolute top-5 left-8 h-px bg-brand transition-all duration-500 ease-in-out -z-10" 
+        <div
+          className="absolute top-5 left-8 h-px bg-brand transition-all duration-500 ease-in-out -z-10"
           style={{ width: `${((currentStep - 1) / (STEPS.length - 1)) * 100}%` }}
         />
 
@@ -274,7 +274,7 @@ export function EventCreateWizard() {
         <p className="text-[10px] font-black text-brand uppercase tracking-widest mb-1">
           Step {currentStep} of {STEPS.length}
         </p>
-        <h2 className="text-lg font-black text-gray-900">{STEPS[currentStep-1].title}</h2>
+        <h2 className="text-lg font-black text-gray-900">{STEPS[currentStep - 1].title}</h2>
       </div>
 
       {/* Step Content */}
@@ -291,7 +291,7 @@ export function EventCreateWizard() {
             {currentStep === 1 && <BasicInfoStep data={formData} onUpdate={updateFormData} />}
             {currentStep === 2 && <CategorizationStep data={formData} onUpdate={updateFormData} />}
             {currentStep === 3 && <SessionsStep data={formData} onUpdate={updateFormData} />}
-            {currentStep === 4 && <AdvancedConfigStep data={formData} onUpdate={updateFormData} />}
+
             {currentStep === 5 && <AccessStep data={formData} onUpdate={updateFormData} />}
             {currentStep === 6 && <MediaStep data={formData} onUpdate={updateFormData} />}
             {currentStep === 7 && <ReviewStep data={formData} />}
