@@ -1,7 +1,7 @@
 <h1 align="center">Ministry of Innovation and Technology (MInT) Event Management System (MInT EMS)</h1>
 
 <p align="center">
-  <em>A production-ready, ML-enhanced platform for managing ministry events at Addis Ababa Science and Technology University</em>
+  <em>A production-ready, ML-enhanced platform for managing ministry events, developed by Debre Birhan University interns for MInT</em>
 </p>
 
 <p align="center">
@@ -40,7 +40,7 @@
 
 ## Overview
 
-**MInT EMS** is a comprehensive, full-stack Ministry Event Management System built for Addis Ababa Science and Technology University. It replaces fragmented, manual event workflows with a centralized digital platform that serves Guests, Event Organizers, and Administrators.
+**MInT EMS** is a comprehensive, full-stack Ministry Event Management System developed by interns from Debre Birhan University for the Ministry of Innovation and Technology (MInT). It replaces fragmented, manual event workflows with a centralized digital platform that serves Guests, Event Organizers, and Administrators.
 
 The system is composed of three main applications:
 
@@ -65,10 +65,21 @@ All services are orchestrated via **Docker Compose** and sit behind an **Nginx**
 | Manual attendance tracking | Inaccurate, time-consuming |
 | No feedback mechanism | No way to improve event quality |
 | Generic announcements | No personalization for guests |
-| No graduation guest-pass workflow | Manual, error-prone distribution |
 
 ---
-samri
+
+## System Workflow
+
+The MInT EMS platform follows a structured, role-based workflow to ensure high-quality event execution:
+
+1. **Event Creation**: An **Organizer** creates a new event, providing all necessary details (venue, time, capacity, description, media) and sets its status to `PENDING`.
+2. **Admin Approval**: An **Administrator** reviews the pending event. If everything is correct and aligns with ministry guidelines, they approve it, changing the status to `PUBLISHED`.
+3. **Discovery & Registration**: **Guests** and other users can now see the published event on their dashboard or "For You" feed, and can register (RSVP) to attend.
+4. **Attendance Management**: Organizers manage registrations, approve RSVPs, and perform QR-code check-ins during the event.
+5. **Post-Event Feedback**: Once the event concludes, it is archived. The system automatically sends feedback forms to all attendees, allowing organizers and administrators to evaluate event success and gather actionable insights.
+
+---
+
 ## System Architecture
 
 CEMS follows a **Modular Monolith** architecture using NestJS — providing clean module boundaries (close to microservices) with the operational simplicity of a monolith. The ML service runs as a separate Python process.
@@ -85,7 +96,7 @@ graph TD
     end
 
     subgraph Backend["NestJS API (Port 4000)"]
-        API["24 Feature Modules\n(Auth, Events, Feedback,\nSupport, Graduation, ...)"]
+        API["Feature Modules\n(Auth, Events, Feedback,\nSupport, Registration, ...)"]
     end
 
     subgraph MLSvc["FastAPI ML Service (Port 8000)"]
@@ -199,18 +210,7 @@ graph TD
 - **Guest invite system** — organizers can invite external guests by email
 - Dynamic **registration forms** with custom fields per event
 
-###  Graduation Ceremony System
 
-A specialized feature for managing the graduation ceremony:
-
-- **CSV bulk import** of graduating guests (name, GPA, email)
-- **Tiered guest-pass allocation** based on GPA (e.g., 3.75+ GPA → 3 passes, etc.)
-- Per-guest **unique claim token** sent via email
-- **Public claim portal** — graduating guests fill in guest details without login
-- Guest pass delivery via **Email** or **Telegram** (QR code sent directly to Telegram)
-- **Resend delivery** capability for failed or missed notifications
-- PDF generation with QR codes for physical guest passes
-- Admin can view the full guest roster and pass status per graduation event
 
 ###  Advanced Feedback System
 
@@ -250,8 +250,6 @@ A full-featured help desk with real-time chat:
   - Password reset
   - Event registration confirmation
   - Feedback requests (post-event)
-  - Graduation guest-pass claim links
-  - Telegram guest pass delivery
 - **BullMQ background queue** for reliable async email processing with retry logic
 
 ###  Analytics & Dashboards
@@ -281,7 +279,7 @@ See the [AI Recommendation Engine](#ai-recommendation-engine) section below.
 
 ## System Modules
 
-### Backend API Modules (24 total)
+### Backend API Modules (22 total)
 
 | Module | Key Responsibilities |
 |:-------|:--------------------|
@@ -296,11 +294,9 @@ See the [AI Recommendation Engine](#ai-recommendation-engine) section below.
 | **Notifications** | WebSocket gateway, email queue via BullMQ |
 | **Feedback** | Token-based feedback, templates, responses, anonymized views |
 | **Support** | Ticket CRUD, WebSocket real-time chat, guest ticket support |
-| **Graduation** | CSV import, tiered guest passes, Telegram delivery, claim portal |
 | **Analytics** | Dashboards, event metrics, participation trends |
 | **Audit Logs** | Forensic action trail with context (IP, user agent, before/after state) |
 | **Recommendation** | Proxy to ML service, result caching |
-| **Telegram** | Bot integration for guest pass QR delivery |
 | **Media** | Cloudinary upload integration |
 | **Departments** | Department management |
 | **Admin** | User management, system settings |
@@ -330,8 +326,6 @@ See the [AI Recommendation Engine](#ai-recommendation-engine) section below.
 - Invite external guests by email
 - Create and manage feedback form templates
 - View (semi-anonymized) feedback responses for their events
-- Import graduation guest lists via CSV
-- Manage guest pass delivery
 
 ### Administrator
 - All Organizer capabilities
@@ -468,7 +462,6 @@ Ministry-of-Innovation-MINT-event-Management-System/
 │   │       ├── departments/          # Department management
 │   │       ├── events/               # Full event lifecycle
 │   │       ├── feedback/             # Token-based feedback system
-│   │       ├── graduation/           # Graduation ceremony feature
 │   │       ├── health/               # Health check
 │   │       ├── media/                # File uploads (Cloudinary)
 │   │       ├── notifications/        # WebSocket + BullMQ
@@ -478,7 +471,6 @@ Ministry-of-Innovation-MINT-event-Management-System/
 │   │       ├── registration/         # RSVP & waitlist
 │   │       ├── role/                 # Role management
 │   │       ├── support/              # Help desk + WebSocket gateway
-│   │       ├── telegram/             # Telegram bot service
 │   │       └── users/                # User profiles & preferences
 │   │
 │   ├── web/                          # Next.js 14 Frontend
@@ -502,8 +494,7 @@ Ministry-of-Innovation-MINT-event-Management-System/
 │   │       │   │       ├── activity/ # Activity feed
 │   │       │   │       └── profile/  # User profile
 │   │       │   ├── discovery/        # Public event discovery
-│   │       │   ├── feedback/         # Public feedback form (token-gated)
-│   │       │   └── graduation/       # Public graduation claim portal
+│   │       │   └── feedback/         # Public feedback form (token-gated)
 │   │       ├── components/
 │   │       │   ├── cems/             # CEMS-specific: Sidebar, Sheet, etc.
 │   │       │   ├── theme/            # ThemeProvider, ThemeToggle
@@ -643,10 +634,6 @@ FRONTEND_URL=http://localhost
 NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your-cloud-name
 NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET=your-preset
 
-# Telegram Bot (optional — for graduation guest pass delivery)
-TELEGRAM_BOT_TOKEN=your-bot-token
-TELEGRAM_BOT_USERNAME=your-bot-username
-
 # ML Service
 ML_SERVICE_URL=http://ml-service:8000
 ```
@@ -666,9 +653,7 @@ The PostgreSQL schema (managed via Prisma) contains **30+ models** across these 
 | **Participation** | `Registration`, `RegistrationStatus`, `Attendance`, `EventWaitlist` |
 | **Invitations** | `EventInvites`, `EventOrganizers`, `EventBookmark` |
 | **Forms** | `FormFields`, `FormResponses` |
-| **Hackathons** | `Hackathons`, `Teams`, `TeamMembers`, `Submissions`, `Judges`, `Scores` |
 | **Feedback** | `FeedbackFormTemplate`, `FeedbackQuestion`, `EventFeedbackTemplate`, `FeedbackToken`, `FeedbackResponse`, `FeedbackAnswer` |
-| **Graduation** | `GraduationRecord`, `GuestPass` |
 | **Support** | `SupportTicket`, `SupportMessage` |
 | **System** | `Notification`, `AuditLogs`, `Announcements`, `Feedback` |
 
@@ -680,18 +665,14 @@ View the full schema at [`apps/api/prisma/schema.prisma`](apps/api/prisma/schema
 
 | Name | ID | Role |
 |:-----|:---|:-----|
-| Miraf Debebe | ETS 1110/14 | Team Member |
-| Mistire Daniel | ETS 1115/14 | Team Member |
-| Nasifay Chala | ETS 1195/14 | Team Member |
-| Natan Addis | ETS 1199/14 | Team Member |
-| Nathnael Keleme | ETS 1222/14 | Team Member |
+| Samrawit Assefa | 1601585 | Team Member |
+| Selamawit Tadesse | 1601596 | Team Member |
+| Sara Abebaw | 1601594 | Team Member |
 
-**Advisor:** Inst. Befekadu Belete
-
-**Institution:** Addis Ababa Science and Technology University — College of Engineering, Department of Software Engineering
+**Institution:** Debre Birhan University (Internship Project at Ministry of Innovation and Technology - MInT)
 
 ---
 
 <p align="center">
-  Built with  by the MInT Software Engineering Class of 2026
+  Built by the MInT Event Management Team
 </p>
